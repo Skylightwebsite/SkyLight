@@ -35,7 +35,7 @@
         }
         .navbar {
             background-color: var(--navbar-bg);
-            padding: 0.25rem;
+            padding: 0.25rem 1rem; /* Added horizontal padding */
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
             position: fixed;
             width: 100%;
@@ -51,7 +51,7 @@
             align-items: center;
         }
         .logo {
-            font-size: 3rem;
+            font-size: 1.5rem; /* Adjusted for responsiveness */
             font-weight: 700;
             color: var(--primary-color);
             text-decoration: none;
@@ -61,7 +61,7 @@
             transition: transform 0.3s ease;
         }
         .logo img {
-            height: 4rem;
+            height: 3rem; /* Adjusted for responsiveness */
             width: auto;
             border-radius: 4px;
         }
@@ -76,7 +76,7 @@
             color: var(--text-color);
             text-decoration: none;
             font-weight: 500;
-            font-size: 24px;
+            font-size: 1.125rem; /* Adjusted for responsiveness */
             transition: color 0.3s ease;
             position: relative;
         }
@@ -95,6 +95,20 @@
         }
         .nav-links a:hover::after {
             width: 100%;
+        }
+        .hamburger {
+            display: none; /* Hidden by default */
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+            padding: 10px;
+        }
+        .hamburger .bar {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-color);
+            border-radius: 2px;
+            transition: all 0.3s ease-in-out;
         }
         .container {
             max-width: 1200px;
@@ -154,6 +168,7 @@
             font-family: inherit;
             background: var(--card-bg);
             color: var(--text-color);
+            box-sizing: border-box; /* Added for consistent sizing */
         }
         .form-group input:focus,
         .form-group textarea:focus {
@@ -271,7 +286,7 @@
         }
         .form-status.success {
             display: block;
-            background-color: #10b981;
+            background-color: var(--success-color);
             color: white;
         }
         .form-status.error {
@@ -302,6 +317,7 @@
             font-size: 1.5rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
+            z-index: 999;
         }
         .theme-switch:hover {
             transform: scale(1.1);
@@ -318,12 +334,73 @@
         .theme-switch .dark-icon {
             display: block;
         }
+
+        /* --- RESPONSIVE STYLES --- */
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--navbar-bg);
+                flex-direction: column;
+                align-items: center;
+                padding: 1.5rem 0;
+                gap: 1.5rem;
+                box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+                max-height: 0; /* Initially hidden */
+                overflow: hidden;
+                transition: max-height 0.4s ease-in-out;
+            }
+            .nav-links.active {
+                max-height: 500px; /* A value larger than the content height */
+            }
+            .navbar a {
+                font-size: 1.25rem;
+            }
+            .hamburger {
+                display: flex;
+            }
+            /* Hamburger animation to 'X' */
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+            .logo {
+                font-size: 1.25rem;
+            }
+            .logo img {
+                height: 2.5rem;
+            }
+            .container {
+                margin-top: 5rem;
+                padding: 1.5rem 1rem;
+            }
+            .contact-header h1 {
+                font-size: 2.5rem;
+            }
+            .contact-form {
+                padding: 1.5rem;
+            }
+            .theme-switch {
+                width: 3rem;
+                height: 3rem;
+                font-size: 1.25rem;
+                bottom: 1rem;
+                right: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <a href="skylightmc.net" class="logo" id="logo-nav">
+            <a href="index.html" class="logo" id="logo-nav">
                 <img src="img/SKYLIGHT Logo.png" alt="SKYLIGHT Hosting Logo">
                 SKYLIGHT HOSTING
             </a>
@@ -333,8 +410,15 @@
                 <a href="plans">Plans</a>
                 <a href="contact">Contact</a>
             </div>
+            <!-- Hamburger Menu Button -->
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </div>
     </nav>
+
     <div class="container">
         <div class="contact-header">
             <h1>Contact Us</h1>
@@ -365,14 +449,26 @@
             </div>
         </div>
     </div>
+
     <button class="theme-switch" aria-label="Toggle theme">
         <span class="dark-icon">🌙</span>
         <span class="light-icon">☀️</span>
     </button>
+
     <footer style="text-align: center; padding: 1rem; background-color: var(--navbar-bg); color: var(--text-color); margin-top: 2rem;">
         © 2025 SKYLIGHT Hosting. All rights reserved.
     </footer>
+
     <script>
+        // Hamburger menu functionality
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
         // Theme switcher functionality
         const themeSwitch = document.querySelector('.theme-switch');
         const root = document.documentElement;

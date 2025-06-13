@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://bebonaiem.dpdns.org/sitemap.xml
+Sitemap: https://skylightmc.net/sitemap.xml

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SKYLIGHT Hosting - Plans</title>
+  <link rel="icon" type="image/png" href="/static/img/SKYLIGHT Logo.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter :wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --primary-color: #6366f1;
+      --secondary-color: #4f46e5;
+      --text-color: #e5e7eb;
+      --light-bg: #f9fafb;
+      --border-color: #e5e7eb;
+      --card-bg: rgba(0, 0, 0, 0.7);
+      --navbar-bg: #111827;
+      --success-color: #10b981;
+    }
+    :root[data-theme="dark"] {
+      --text-color: #e5e7eb;
+      --light-bg: #111827;
+      --border-color: #374151;
+      --card-bg: rgba(0, 0, 0, 0.7);
+      --navbar-bg: #111827;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-image: url('https://wallpaperaccess.com/full/4163390.jpg ');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      transition: background-color 0.3s ease;
+    }
+
+    .navbar {
+      background-color: var(--navbar-bg);
+      padding: 0.25rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .logo img {
+      height: 4rem;
+      width: auto;
+      border-radius: 4px;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .navbar a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 24px;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .navbar a:hover {
+      color: var(--primary-color);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: var(--primary-color);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 6rem auto 2rem;
+      padding: 2rem;
+      flex: 1;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* Always 3 columns for desktop */
+      gap: 2rem;
+      margin: 4rem 0;
+    }
+
+    @media (max-width: 768px) {
+      .pricing-grid {
+        grid-template-columns: 1fr; /* Single column for mobile */
+      }
+    }
+
+    .pricing-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 2.5rem 2rem 3rem;
+      text-align: center;
+      transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 0.6s ease-out;
+      animation-fill-mode: both;
+      border: 1px solid var(--border-color);
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .pricing-header h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--text-color);
+    }
+
+    .price {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin: 1.5rem 0;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .price .currency {
+      font-size: 1.2rem;
+      color: #6b7280;
+    }
+
+    .features-list {
+      list-style: none;
+      padding: 0;
+      margin: 2rem 0;
+      text-align: left;
+    }
+
+    .features-list li {
+      font-size: 1.125rem;
+      padding: 0;
+      display: block;
+      margin: 0;
+    }
+
+    .features-list li::before {
+      content: "✓";
+      color: var(--success-color);
+      font-weight: bold;
+      margin-right: 0.5rem;
+    }
+
+    .features-list li.no-marker::before {
+      display: none;
+    }
+
+    .plan-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      background: linear-gradient(to bottom, #5865F2, #4752C4);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 300;
+      font-size: 1.125rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 4px rgba(88, 101, 242, 0.2);
+      margin: 1rem auto;
+      width: fit-content;
+    }
+
+    .plan-button:hover {
+      background: linear-gradient(to bottom, #4752C4, #3442B5);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(88, 101, 242, 0.4);
+    }
+
+    footer {
+      background-color: var(--navbar-bg);
+      color: var(--text-color);
+      text-align: center;
+      padding: 1rem;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="img/SKYLIGHT Logo.png" alt="SKYLIGHT Hosting Logo">
+        SKYLIGHT HOSTING
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="https://panel.SKYLIGHTmc.net/ ">Dashboard</a>
+        <a href="plans.html">Plans</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <section class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <h3>Starter</h3>
+          <div class="price"><span class="currency">$</span><span class="amount">2.99</span><span class="period">/month</span></div>
+        </div>
+        <ul class="features-list">
+          <li class="no-marker">4GB RAM</li>
+          <li class="no-marker">15GB SSD Storage</li>
+          <li class="no-marker">2 CPU Core</li>
+          <li class="no-marker">1TB Bandwidth</li>
+          <li class="no-marker">24/7 Support</li>
+          <li class="no-marker">Advanced DDoS Protection</li>
+        </ul>
+        <a href="https://discord.gg/EErzRQne72 " class="plan-button">Get Started</a>
+      </div>
+
+      <div class="pricing-card popular">
+        <div class="pricing-header">
+          <h3>Professional</h3>
+          <div class="price"><span class="currency">$</span><span class="amount">7.99</span><span class="period">/month</span></div>
+        </div>
+        <ul class="features-list">
+          <li>8GB RAM</li>
+          <li>30GB SSD Storage</li>
+          <li>4 CPU Cores</li>
+          <li>5TB Bandwidth</li>
+          <li>24/7 Priority Support</li>
+          <li>Advanced DDoS Protection</li>
+        </ul>
+        <a href="https://discord.gg/EErzRQne72 " class="plan-button">Get Started</a>
+      </div>
+
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <h3>Enterprise</h3>
+          <div class="price"><span class="currency">$</span><span class="amount">11.99</span><span class="period">/month</span></div>
+        </div>
+        <ul class="features-list">
+          <li class="no-marker">16GB RAM</li>
+          <li class="no-marker">45GB SSD Storage</li>
+          <li class="no-marker">8 CPU Cores</li>
+          <li class="no-marker">Unlimited Bandwidth</li>
+          <li class="no-marker">24/7 Priority Support</li>
+          <li class="no-marker">Advanced DDoS Protection</li>
+        </ul>
+        <a href="https://discord.gg/EErzRQne72 " class="plan-button">Get Started</a>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    &copy; 2025 SKYLIGHT Hosting. All rights reserved.
+  </footer>
+</body>
+</html>

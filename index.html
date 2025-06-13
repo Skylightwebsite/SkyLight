@@ -40,47 +40,48 @@
       transition: background-color 0.3s ease;
     }
     /* خلفية شفافة عند بداية الصفحة */
-#main-navbar.transparent {
-  background-color: transparent !important;
-  box-shadow: none;
-}
-.game-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
+    #main-navbar.transparent {
+      background-color: transparent !important;
+      box-shadow: none;
+    }
+    .game-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
 
-/* تأثير انتقال ناعم */
-#main-navbar {
-  transition: background-color 0.4s ease, box-shadow 0.4s ease;
-}
-  .scroll-button {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-       background: linear-gradient(to bottom, #040ca4, #111827);
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: 500;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  margin-top: 0.rem; /* تم تقليل المسافة من الأعلى */
-}
-.scroll-button:hover {
-  background-color: var(--secondary-color);
-  transform: translateY(-2px);
-}
+    /* تأثير انتقال ناعم */
+    #main-navbar {
+      transition: background-color 0.4s ease, box-shadow 0.4s ease;
+    }
+      .scroll-button {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+           background: linear-gradient(to bottom, #040ca4, #111827);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      margin-top: 0.rem; /* تم تقليل المسافة من الأعلى */
+    }
+    .scroll-button:hover {
+      background-color: var(--secondary-color);
+      transform: translateY(-2px);
+    }
 
-.scroll-button:active {
-  transform: translateY(0);
-}
+    .scroll-button:active {
+      transform: translateY(0);
+    }
     .navbar {
       background-color: var(--navbar-bg);
-      padding: 0.25rem;
+      padding: 0.25rem 1rem; /* Added horizontal padding */
       box-shadow: 0 1px 3px rgba(0,0,0,0.1);
       position: fixed;
       width: 100%;
       top: 0;
       z-index: 1000;
       transition: background-color 0.3s ease;
+      box-sizing: border-box; /* Ensures padding is included in width */
     }
     .nav-container {
       max-width: 1200px;
@@ -90,7 +91,7 @@
       align-items: center;
     }
     .logo {
-      font-size: 3rem;
+      font-size: 1.25rem; /* Adjusted font size for flexibility */
       font-weight: 700;
       color: var(--primary-color);
       text-decoration: none;
@@ -115,7 +116,7 @@
       color: var(--text-color);
       text-decoration: none;
       font-weight: 500;
-      font-size: 24px;
+      font-size: 1.1rem; /* Slightly reduced for better fitting */
       transition: color 0.3s ease;
       position: relative;
     }
@@ -155,23 +156,20 @@
       animation: zoomIn 1s ease-out;
     }
  
-    /* تخصيص حاوية GIF */
-/* تخصيص حاوية GIF */
-.gif-container {
-    display: flex;
-    justify-content: center; /* تمركز أفقي */
-    align-items: center; /* تمركز坚直 */
-    margin-top: 2rem; /* مسافة من الأعلى (اختياري) */
-    width: 100%; /* تأكد من أن الحاوية تغطي العرض الكامل */
-}
+    .gif-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2rem;
+        width: 100%;
+    }
 
-/* تعديل حجم GIF */
-.gif-container img {
-    max-width: 100%; /* ضبط الحجم الأقصى للعرض */
-    max-height: 100%; /* ضبط الحجم الأقصى للارتفاع */
-    width: auto; /* تأكد من الحفاظ على نسبة العرض/الارتفاع */
-    height: auto;
-}
+    .gif-container img {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+    }
     .cta-button {
       display: inline-block;
       padding: 1rem 2rem;
@@ -190,12 +188,12 @@
     }
     .features-section {
       display: grid;
-      grid-template-columns: repeat(3, 1fr); /* Always show 3 columns side by side */
+      grid-template-columns: repeat(3, 1fr); /* Default for desktop */
       gap: 2rem;
       margin: 2rem 0;
     }
     .feature-card {
-      background: var(--card-bg); /* Semi-transparent dark card background */
+      background: var(--card-bg);
       border-radius: 16px;
       padding: 2.5rem 2rem;
       text-align: center;
@@ -212,7 +210,7 @@
     }
     .feature-icon {
       font-size: 3rem;
-      margin-bottom: 3rem;
+      margin-bottom: 1rem;
     }
     .discord-button {
       display: inline-flex;
@@ -251,7 +249,8 @@
     .cta-section {
       text-align: center;
       color: #000;
-      padding: 10rem 0;      background-color: var(--light-bg); /* Semi-transparent light background */
+      padding: 10rem 0;      
+      background-color: var(--light-bg);
       margin-top: 3rem;
     }
     footer {
@@ -262,256 +261,323 @@
       margin-top: auto;
     }
     .cta-button-modern {
-  display: inline-block;
-  padding: 2rem 2.5rem;
-  font-size: 2rem;
-  font-weight: 600;
-  color: white;
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-radius: 100px;
-  backdrop-filter: blur(10px);
-  text-decoration: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
+      display: inline-block;
+      padding: 2rem 2.5rem;
+      font-size: 2rem;
+      font-weight: 600;
+      color: white;
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 100px;
+      backdrop-filter: blur(10px);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
 
-.cta-button-modern:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-3px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
-}
+    .cta-button-modern:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    }
 
-.cta-button-modern:active {
-  transform: translateY(0);
-}
+    .cta-button-modern:active {
+      transform: translateY(0);
+    }
+    
+    /* --- Styles for Mobile Hamburger Menu --- */
+    .menu-toggle {
+        display: none;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 2.5rem;
+        height: 2rem;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 10;
+    }
+
+    .menu-toggle .bar {
+        width: 2.5rem;
+        height: 0.25rem;
+        background-color: var(--text-color);
+        border-radius: 10px;
+        transition: all 0.3s linear;
+    }
+
+    /* --- Responsive Design using Media Queries --- */
+    @media (max-width: 820px) {
+        .logo { font-size: 1.1rem; }
+        .logo .logo-text {
+            display: none; /* Hide logo text on small screens */
+        }
+        .logo img {
+            height: 4rem; /* Slightly smaller logo */
+        }
+        
+        .nav-links {
+            display: none; /* Hide links by default */
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: var(--navbar-bg);
+            backdrop-filter: blur(10px);
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem 0;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .nav-links.active {
+            display: flex; /* Show when active */
+        }
+        
+        .nav-links a {
+            padding: 1rem 0;
+            font-size: 1.2rem;
+        }
+
+        .menu-toggle {
+            display: flex; /* Show hamburger menu */
+        }
+
+        .features-section {
+            grid-template-columns: 1fr; /* Stack feature cards vertically */
+            gap: 1.5rem;
+        }
+
+        .container {
+            padding: 1rem; /* Reduce container padding */
+            margin-top: 5rem;
+        }
+
+        .hero {
+            padding-top: 4rem; /* Adjust hero padding */
+        }
+
+        .hero h1 {
+            font-size: 2.2rem; /* Adjust heading size */
+        }
+        
+        .cta-button-modern {
+            font-size: 1.5rem;
+            padding: 1.5rem 2rem;
+        }
+        
+        .cta-section, .reviews-section {
+            padding: 3rem 1rem;
+        }
+
+        .cta-section h2, .reviews-section h2 {
+            font-size: 2rem;
+        }
+    }
+
   </style>
 </head>
 <body>
   <nav class="navbar" id="main-navbar">
-  <div class="nav-container">
-    <a href="index.html" class="logo">
-      <img src="img/SKYLIGHT Logo.png" alt="SKYLIGHT Hosting Logo">
-      SKYLIGHT HOSTING
-    </a>
-    <div class="nav-links">
-      <a href="index.html">Home page</a>
-      <a href="https://panel.SKYLIGHTmc.net/">Dashboard  app</a>
-      <a href="plans.html">Plans</a>
-      <a href="contact.html">Contact</a>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="img/SKYLIGHT Logo.png" alt="SKYLIGHT Hosting Logo">
+        <span class="logo-text">SKYLIGHT HOSTING</span>
+      </a>
+      <!-- Hamburger Menu Button -->
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html">Home page</a>
+        <a href="https://panel.SKYLIGHTmc.net/">Dashboard app</a>
+        <a href="plans.html">Plans</a>
+        <a href="contact.html">Contact</a>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
 
   <div class="container">
-  <section class="hero">
-  <h1>Welcome to SKYLIGHT Hosting</h1>
-  <hr>
-  
-
-
-  
+    <section class="hero">
+      <h1>Welcome to SKYLIGHT Hosting</h1>
+      <hr>
+    </section>
   </div>
   
-
-
-<!-- حاوية الصورة المتحركة -->
-<div class="gif-container" style="margin-bottom: 4rem;">
-  <img src="https://www.dropbox.com/scl/fi/ytodfuhz4ma6f3ibg0uip/Animation4.gif?rlkey=fc2k21farh2lhi7ylwb3m5oa0&st=ze7jmvz9&dl=1" alt="رسوم متحركة عن الاستضافة">
-</div>
-
-<!-- زر الطلب -->
-<section class="order-section" style="text-align: center; margin-bottom: 4rem;">
-  <a href="plans.html" class="cta-button-modern">
-    Order Now
-  </a>
-</section>
-
-<!-- المربعات الثلاثة -->
-<section class="features-section" style="margin: 0 auto; max-width: 1200px;">
-  <!-- المربعات الثلاثة تبقى كما هي -->
-  <div class="feature-card" style="
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 16px;
-    padding: 2.5rem 2rem;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    color: white;
-    animation: fadeInUp 0.6s ease-out;
-  ">
-    <div class="feature-icon" style="font-size: 3rem; margin-bottom: 1rem;">🚀</div>
-    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Lightning Fast <hr></h3>
-    <p style="opacity: 0.9;">Blazing fast servers with SSD storage and optimized infrastructure for maximum performance.</p>
+  <!-- حاوية الصورة المتحركة -->
+  <div class="gif-container" style="margin-bottom: 4rem;">
+    <img src="https://www.dropbox.com/scl/fi/ytodfuhz4ma6f3ibg0uip/Animation4.gif?rlkey=fc2k21farh2lhi7ylwb3m5oa0&st=ze7jmvz9&dl=1" alt="رسوم متحركة عن الاستضافة">
   </div>
 
-  <div class="feature-card" style="
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 16px;
-    padding: 2.5rem 2rem;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    color: white;
-    animation: fadeInUp 0.6s ease-out;
-  ">
-    <div class="feature-icon" style="font-size: 3rem; margin-bottom: 1rem;">🛡️</div>
-    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Advanced Security <hr></h3>
-    <p style="opacity: 0.9;">Enterprise-grade security with DDoS protection and regular security updates.</p>
-  </div>
+  <!-- زر الطلب -->
+  <section class="order-section" style="text-align: center; margin-bottom: 4rem;">
+    <a href="plans.html" class="cta-button-modern">
+      Order Now
+    </a>
+  </section>
 
-  <div class="feature-card" style="
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 16px;
-    padding: 2.5rem 2rem;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    color: white;
-    animation: fadeInUp 0.6s ease-out;
-  ">
-    <div class="feature-icon" style="font-size: 3rem; margin-bottom: 1rem;">🔧</div>
-    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">24/7 Support <hr></h3>
-    <p style="opacity: 0.9;">Our dedicated support team is always ready to help you with any issues.</p>
-  </div>
-</section>
+  <!-- المربعات الثلاثة -->
+  <section class="features-section" style="margin: 0 auto; max-width: 1200px; padding: 0 1rem;">
+    <div class="feature-card" style="
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+    ">
+      <div class="feature-icon">🚀</div>
+      <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Lightning Fast <hr></h3>
+      <p style="opacity: 0.9;">Blazing fast servers with SSD storage and optimized infrastructure for maximum performance.</p>
+    </div>
+
+    <div class="feature-card" style="
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+    ">
+      <div class="feature-icon">🛡️</div>
+      <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Advanced Security <hr></h3>
+      <p style="opacity: 0.9;">Enterprise-grade security with DDoS protection and regular security updates.</p>
+    </div>
+
+    <div class="feature-card" style="
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+    ">
+      <div class="feature-icon">🔧</div>
+      <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">24/7 Support <hr></h3>
+      <p style="opacity: 0.9;">Our dedicated support team is always ready to help you with any issues.</p>
+    </div>
+  </section>
      
-<section class="hero" style="text-align: center; margin: 4rem 0;">
- 
-  <hr>
-  <!-- زر الانتقال إلى الأسفل -->
-<a href="#bottom-section" class="scroll-button">See what users say😉👇 </a>
+  <section class="hero" style="text-align: center; margin: 4rem 0;">
+    <hr>
+    <!-- زر الانتقال إلى الأسفل -->
+    <a href="#reviews-section" class="scroll-button">See what users say😉👇 </a>
+  </section>
 
 
-  </div>
-
-</section>
-
-</section>
-
-
-    <section class="cta-section" style="
-  text-align: center;
-  padding: 4rem 2rem;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-top: 1px solid var(--border-color);
-  border-bottom: 1px solid var(--border-color);
-  backdrop-filter: blur(10px);
-  margin-top: 4rem;
-  color: white;
-  animation: fadeInUp 0.8s ease-out;
-">
-  <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Join Our Community</h2>
-  <p style="font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto 2rem;">Get help, share ideas, and connect with other users</p>
-  <a href="https://discord.gg/EErzRQne72"  class="discord-button">Join Our Discord Server</a>
-</section>
-  </div>
-
+  <section class="cta-section" style="
+    text-align: center;
+    padding: 4rem 2rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    backdrop-filter: blur(10px);
+    margin-top: 4rem;
+    color: white;
+    animation: fadeInUp 0.8s ease-out;
+  ">
+    <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Join Our Community</h2>
+    <p style="font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto 2rem;">Get help, share ideas, and connect with other users</p>
+    <a href="https://discord.gg/EErzRQne72"  class="discord-button">Join Our Discord Server</a>
+  </section>
+  
   <footer>
-   
-<section class="reviews-section" style="
-  padding: 4rem 2rem;
-  text-align: center;
-  color: var(--text-color);
-  background-color: rgba(255, 255, 255, 0.1);
-  border-top: 1px solid var(--border-color);
-  border-bottom: 1px solid var(--border-color);
-  backdrop-filter: blur(10px);
-  animation: fadeInUp 0.8s ease-out;
-">
-  <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">What Our Users Say ⭐⭐⭐⭐⭐</h2>
-
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto;">
-    
-    <!-- مراجعة 1 -->
-    <div style="
+    <section id="reviews-section" class="reviews-section" style="
+      padding: 4rem 2rem;
+      text-align: center;
+      color: var(--text-color);
       background-color: rgba(255, 255, 255, 0.1);
-      padding: 2rem;
-      border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s ease;
-      color: white;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      backdrop-filter: blur(10px);
+      animation: fadeInUp 0.8s ease-out;
     ">
-      <p style="font-style: italic; opacity: 0.9;">"Amazing service and lightning speed! I highly recommend it."</p>
-      <p style="margin-top: 1rem; font-weight: bold;">— SADIQ
- .</p>
-      <p style="color: gold;">★★★★★</p>
-    </div>
+      <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">What Our Users Say ⭐⭐⭐⭐⭐</h2>
 
-    <!-- مراجعة 2 -->
-    <div style="
-      background-color: rgba(255, 255, 255, 0.1);
-      padding: 2rem;
-      border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s ease;
-      color: white;
-    ">
-      <p style="font-style: italic; opacity: 0.9;">"The best hosting support I’ve experienced. Always online!"</p>
-      <p style="margin-top: 1rem; font-weight: bold;">— MURTAJA
- .</p>
-      <p style="color: gold;">★★★★★★</p>
-    </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto;">
+        
+        <!-- Review 1 -->
+        <div style="
+          background-color: rgba(255, 255, 255, 0.1);
+          padding: 2rem;
+          border-radius: 16px;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+          transition: transform 0.3s ease;
+          color: white;
+        ">
+          <p style="font-style: italic; opacity: 0.9;">"Amazing service and lightning speed! I highly recommend it."</p>
+          <p style="margin-top: 1rem; font-weight: bold;">— SADIQ.</p>
+          <p style="color: gold;">★★★★★</p>
+        </div>
 
-    <!-- مراجعة 3 -->
-    <div style="
-      background-color: rgba(255, 255, 255, 0.1);
-      padding: 2rem;
-      border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s ease;
-      color: white;
-    ">
-      <p style="font-style: italic; opacity: 0.9;">"Affordable and secure. Perfect for my Minecraft server."</p>
-      <p style="margin-top: 1rem; font-weight: bold;">— ╰༽ℕ𝔸𝕊𝕙𝕄𝔼ད 𝓂𝟟
-.</p>
-      <p style="color: gold;">★★★★★</p>
-    </div>
+        <!-- Review 2 -->
+        <div style="
+          background-color: rgba(255, 255, 255, 0.1);
+          padding: 2rem;
+          border-radius: 16px;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+          transition: transform 0.3s ease;
+          color: white;
+        ">
+          <p style="font-style: italic; opacity: 0.9;">"The best hosting support I’ve experienced. Always online!"</p>
+          <p style="margin-top: 1rem; font-weight: bold;">— MURTAJA.</p>
+          <p style="color: gold;">★★★★★★</p>
+        </div>
 
-  </div>
-</section>
-&copy; 2025 SKYLIGHT Hosting. All rights reserved hasan
+        <!-- Review 3 -->
+        <div style="
+          background-color: rgba(255, 255, 255, 0.1);
+          padding: 2rem;
+          border-radius: 16px;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+          transition: transform 0.3s ease;
+          color: white;
+        ">
+          <p style="font-style: italic; opacity: 0.9;">"Affordable and secure. Perfect for my Minecraft server."</p>
+          <p style="margin-top: 1rem; font-weight: bold;">— ╰༽ℕ𝔸𝕊𝕙𝕄𝔼ད 𝓂𝟟.</p>
+          <p style="color: gold;">★★★★★</p>
+        </div>
+
+      </div>
+    </section>
+    © 2025 SKYLIGHT Hosting. All rights reserved hasan
   </footer>
+  
   <script>
-  // تفعيل التمرير السلس عند النقر على الزر
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
 
-      // حساب موقع العنصر الذي نريد التوجه إليه
-      const targetId = this.getAttribute('href').substring(1);
-      const targetElement = document.getElementById(targetId);
-
-      if (targetElement) {
-        // التمرير السلس إلى الموقع المحدد
-        window.scrollTo({
-          top: targetElement.offsetTop,
-          behavior: 'smooth'
-        });
+    // Navbar transparency on scroll
+    const navbar = document.getElementById("main-navbar");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        navbar.classList.remove("transparent");
+      } else {
+        navbar.classList.add("transparent");
       }
     });
-  });
-</script>
-<script>
-  const navbar = document.getElementById("main-navbar");
-  let isTransparent = true;
 
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 50) {
-      // عندما ينزل المستخدم قليلاً، أظهر الخلفية الطبيعية
-      navbar.classList.remove("transparent");
-    } else {
-      // إذا كان في الأعلى، اجعلها شفافة
-      navbar.classList.add("transparent");
-    }
-  });
-</script>
+    // Mobile menu toggle functionality
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        const isExpanded = navLinks.classList.contains('active');
+        menuToggle.setAttribute('aria-expanded', isExpanded);
+    });
+  </script>
 </body>
 </html>

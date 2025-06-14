@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SKYLIGHT Hosting - Game & Bot Hosting</title>
+  <link rel="icon" type="image/png" href="img/SKYLIGHT Logo.png" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    :root {
+      --primary-color: #6366f1;
+      --secondary-color: #4f46e5;
+      --text-color: #e5e7eb;
+      --text-color-darker: #9ca3af;
+      --border-color: rgba(255, 255, 255, 0.2);
+      --card-bg: rgba(17, 24, 39, 0.6);
+      --navbar-bg: rgba(17, 24, 39, 0.7);
+      --success-color: #00ffaa;
+      --glow-color: rgba(99, 102, 241, 0.5);
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background-image: url('img/background.webp');
+      background-color: #111827;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .navbar {
+      background-color: transparent;
+      padding: 0.5rem 1.5rem;
+      box-shadow: none;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      transition: background-color 0.4s ease, box-shadow 0.4s ease;
+      backdrop-filter: blur(0px);
+      box-sizing: border-box;
+    }
+    .navbar.scrolled {
+      background-color: var(--navbar-bg);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      transition: transform 0.3s ease;
+    }
+    .logo img {
+      height: 4rem;
+      width: auto;
+    }
+    .logo:hover {
+      transform: scale(1.05);
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+    }
+    .navbar a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+    .navbar a:hover {
+      color: var(--primary-color);
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: var(--primary-color);
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      flex: 1;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    main {
+      padding-top: 8rem; /* Space for navbar */
+    }
+
+    /* --- Hero Section --- */
+    .hero {
+      text-align: center;
+      padding: 4rem 0 2rem;
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+      background: linear-gradient(135deg, #ffffff, #a7a9ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero .subtitle {
+      font-size: 1.25rem;
+      max-width: 650px;
+      margin: 0 auto 2.5rem;
+      color: var(--text-color-darker);
+    }
+    .cta-button-modern {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: white;
+      background: var(--primary-color);
+      border: none;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2), 0 0 15px var(--glow-color);
+    }
+    .cta-button-modern:hover {
+      background-color: var(--secondary-color);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3), 0 0 25px var(--glow-color);
+    }
+    .gif-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 3rem;
+    }
+    .gif-container video {
+        max-width: 90%;
+        height: auto;
+        border-radius: 16px;
+    }
+    
+    /* --- Features Section --- */
+    .features-section {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin: 6rem 0;
+    }
+    .feature-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid var(--border-color);
+      position: relative;
+    }
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25), 0 0 20px var(--glow-color);
+      border-color: var(--primary-color);
+    }
+    .feature-icon {
+      background-color: var(--secondary-color);
+      height: 60px;
+      width: 60px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    .feature-icon svg {
+      width: 32px;
+      height: 32px;
+      color: white;
+    }
+    .feature-card h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 0 0 0.5rem;
+    }
+    .feature-card p {
+      color: var(--text-color-darker);
+      font-size: 1rem;
+    }
+
+    /* --- Discord CTA Section --- */
+    .discord-cta-section {
+      text-align: center;
+      padding: 5rem 2rem;
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      margin: 6rem 0;
+    }
+    .discord-cta-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    .discord-cta-section p {
+      font-size: 1.2rem;
+      opacity: 0.8;
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+    }
+    .discord-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      background-color: #5865F2;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
+    }
+    .discord-button:hover {
+      background-color: #4752C4;
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 20px rgba(88, 101, 242, 0.4);
+    }
+
+    /* --- Reviews Section --- */
+    .reviews-section {
+      padding: 6rem 0;
+      text-align: center;
+    }
+    .reviews-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      font-weight: 700;
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .review-card {
+      background-color: var(--card-bg);
+      padding: 2rem;
+      border-radius: 16px;
+      border: 1px solid var(--border-color);
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .review-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+    .review-card .quote {
+      font-style: italic;
+      color: var(--text-color);
+      opacity: 0.9;
+    }
+    .review-card .author {
+      margin-top: 1.5rem;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+    .review-card .stars {
+      color: gold;
+      margin-top: 0.5rem;
+      font-size: 1.2rem;
+    }
+    
+    /* --- Footer --- */
+    footer {
+      background-color: rgba(17, 24, 39, 0.5);
+      text-align: center;
+      padding: 1.5rem 1rem;
+      margin-top: auto;
+      border-top: 1px solid var(--border-color);
+      font-size: 0.9rem;
+      color: var(--text-color-darker);
+    }
+    
+    /* --- Hamburger Menu --- */
+    .menu-toggle {
+        display: none;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 2.5rem;
+        height: 2rem;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 10;
+    }
+    .menu-toggle .bar {
+        width: 2.5rem;
+        height: 0.25rem;
+        background-color: var(--text-color);
+        border-radius: 10px;
+        transition: all 0.3s ease-in-out;
+    }
+    
+    /* --- Responsive Design --- */
+    @media (max-width: 820px) {
+        .logo .logo-text { display: none; }
+        .logo img { height: 3.5rem; }
+        .nav-links {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: var(--navbar-bg);
+            backdrop-filter: blur(10px);
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem 0;
+            border-top: 1px solid var(--border-color);
+        }
+        .nav-links.active { display: flex; }
+        .nav-links a { padding: 1rem 0; font-size: 1.2rem; }
+        .menu-toggle { display: flex; }
+        .menu-toggle.active .bar:nth-child(1) { transform: translateY(11px) rotate(45deg); }
+        .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
+        .menu-toggle.active .bar:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
+        
+        main { padding-top: 6rem; }
+        .container { padding: 1rem; }
+        .hero { padding: 2rem 0; }
+        .hero h1 { font-size: 2.5rem; }
+        .hero .subtitle { font-size: 1.1rem; }
+        .features-section { grid-template-columns: 1fr; gap: 1.5rem; margin: 4rem 0; }
+        .discord-cta-section { padding: 3rem 1.5rem; margin: 4rem 0; }
+        .discord-cta-section h2 { font-size: 2rem; }
+        .reviews-section { padding: 4rem 0; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar" id="main-navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="img/SKYLIGHT Logo.png" alt="SKYLIGHT Hosting Logo">
+        <span class="logo-text">SKYLIGHT HOSTING</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="https://panel.SKYLIGHTmc.net/">Dashboard</a>
+        <a href="plans.html">Plans</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Lag-Free Gaming & Bot Hosting, Unleashed.</h1>
+      <p class="subtitle">High-performance hosting for Minecraft, Rust, and Discord bots. Enjoy enterprise-grade DDoS protection, low latency, and 24/7 expert support.</p>
+      <a href="plans.html" class="cta-button-modern">View Game & Bot Plans</a>
+    <div class="gif-container">
+        <video autoplay loop muted playsinline>
+            <source src="img/Animation4.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    </section>
+
+    <section class="features-section">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <!-- Minecraft Icon: Cube/Block -->
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9.75l-9-5.25M12 12.75l9 5.25" />
+          </svg>
+        </div>
+        <h3>Minecraft Hosting</h3>
+        <p>Experience ultra-low latency with our NVMe SSDs, full mod & plugin support, and one-click modpack installations.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <!-- Rust Icon: Cog/Gear -->
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.438.995s.145.755.438.995l1.003.827c.48.398.668 1.03.26 1.431l-1.296 2.247a1.125 1.125 0 01-1.37.49l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.063-.374-.313-.686-.645-.87a6.52 6.52 0 01-.22-.127c-.324-.196-.72-.257-1.075-.124l-1.217.456a1.125 1.125 0 01-1.37-.49l-1.296-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.437-.995s-.145-.755-.437-.995l-1.004-.827a1.125 1.125 0 01-.26-1.431l1.296-2.247a1.125 1.125 0 011.37-.49l1.217.456c.355.133.75.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.213-1.28zM15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        </div>
+        <h3>Rust Hosting</h3>
+        <p>Dominate the island with high-performance CPUs, advanced DDoS protection, and full support for uMod/Oxide plugins.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <!-- Bot Icon: Chip -->
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V8.25a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 8.25v7.5A2.25 2.25 0 006.75 18z" />
+          </svg>
+        </div>
+        <h3>Discord Bot Hosting</h3>
+        <p>Keep your bot online 24/7. We offer reliable hosting for Python (discord.py) & JavaScript (discord.js) bots.</p>
+      </div>
+    </section>
+     
+    <section class="discord-cta-section">
+      <h2>Join Our Community</h2>
+      <p>Get help, share ideas, and connect with thousands of other SKYLIGHT users on our official Discord server.</p>
+      <a href="https://discord.gg/EErzRQne72" class="discord-button">Join Our Discord Server</a>
+    </section>
+  
+    <section id="reviews-section" class="reviews-section">
+      <h2>What Our Gamers Say</h2>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <p class="quote">"My Minecraft server has never run smoother! The performance is insane, and the one-click plugin installer is a lifesaver. Highly recommend SKYLIGHT."</p>
+          <p class="author">— SADIQ.</p>
+          <p class="stars">★★★★★</p>
+        </div>
+        <div class="review-card">
+          <p class="quote">"The best Rust hosting support I’ve ever had. They helped me with custom map setups and were super friendly. It feels like they actually play the game!"</p>
+          <p class="author">— MURTAJA.</p>
+          <p class="stars">★★★★★★</p>
+        </div>
+        <div class="review-card">
+          <p class="quote">"I host my Python Discord bot here and the uptime is flawless. The control panel makes managing my files and logs so easy. A++ service."</p>
+          <p class="author">— ╰༽ℕ𝔸𝕊𝕙𝕄𝔼ད 𝓂𝟟.</p>
+          <p class="stars">★★★★★</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <footer>
+    © 2025 SKYLIGHT Hosting. All rights reserved by Hasan.
+  </footer>
+  
+  <script>
+    // Navbar transparency on scroll
+    const navbar = document.getElementById("main-navbar");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+
+    // Mobile menu toggle functionality
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

@@ -5,13 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SKYLIGHT Hosting</title>
   <link rel="icon" type="image/png" href="img/SKYLIGHT Logo.png" />
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "ryu72adkni");
-  </script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
     :root {
@@ -30,7 +23,7 @@
       margin: 0;
       padding: 0;
       line-height: 1.6;
-      background-image: url('img/background.png');
+      background-image: url('img/background.webp');
       background-color: #111827;
       background-size: cover;
       background-position: center;
@@ -374,7 +367,7 @@
 <body>
   <nav class="navbar" id="main-navbar">
     <div class="nav-container">
-      <a href="index" class="logo">
+      <a href="index.html" class="logo">
         <img src="img/SKYLIGHT Logo.png" alt="SKYLIGHT Hosting Logo">
         <span class="logo-text">SKYLIGHT HOSTING</span>
       </a>
@@ -382,10 +375,10 @@
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
       <div class="nav-links" id="nav-links">
-        <a href="index">Home</a>
+        <a href="index.html">Home</a>
         <a href="https://panel.SKYLIGHTmc.net/">Dashboard</a>
-        <a href="plans">Plans</a>
-        <a href="contact">Contact</a>
+        <a href="plans.html">Plans</a>
+        <a href="contact.html">Contact</a>
       </div>
     </div>
   </nav>
@@ -395,9 +388,13 @@
       <h1>Powering Your World, <br>Faster Than Light.</h1>
       <p class="subtitle">Experience unparalleled performance, enterprise-grade security, and dedicated 24/7 support. SKYLIGHT is where your projects take flight.</p>
       <a href="plans.html" class="cta-button-modern">Order Now & Get Started</a>
-      <div class="gif-container">
-        <img src="img/Animation4.gif" alt="Hosting animation">
-      </div>
+<!-- الكود الجديد -->
+    <div class="gif-container">
+        <video autoplay loop muted playsinline style="max-width: 90%; height: auto; border-radius: 16px;">
+            <source src="img/Animation4.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
     </section>
 
     <section class="features-section">

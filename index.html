@@ -3,28 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SKYLIGHT Hosting - Game & Bot Hosting</title>
+  <title>SKYLIGHT Hosting - Premium Game & Bot Hosting</title>
   <link rel="icon" type="image/png" href="img/SKYLIGHT Logo.png" />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
     :root {
       --primary-color: #6366f1;
       --secondary-color: #4f46e5;
+      --accent-color: #8b5cf6;
       --text-color: #e5e7eb;
       --text-color-darker: #9ca3af;
-      --border-color: rgba(255, 255, 255, 0.2);
-      --card-bg: rgba(17, 24, 39, 0.6);
+      --bg-color: #111827;
+      --card-bg: rgba(31, 41, 55, 0.5); /* Semi-transparent card */
+      --border-color: rgba(255, 255, 255, 0.1);
       --navbar-bg: rgba(17, 24, 39, 0.7);
-      --success-color: #00ffaa;
       --glow-color: rgba(99, 102, 241, 0.5);
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
     }
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
       line-height: 1.6;
+      background-color: var(--bg-color);
       background-image: url('img/background.webp');
-      background-color: #111827;
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -33,18 +37,17 @@
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      overflow-x: hidden;
     }
     .navbar {
       background-color: transparent;
       padding: 0.5rem 1.5rem;
-      box-shadow: none;
       position: fixed;
       width: 100%;
       top: 0;
       z-index: 1000;
-      transition: background-color 0.4s ease, box-shadow 0.4s ease;
+      transition: background-color 0.4s ease, box-shadow 0.4s ease, backdrop-filter 0.4s ease;
       backdrop-filter: blur(0px);
-      box-sizing: border-box;
     }
     .navbar.scrolled {
       background-color: var(--navbar-bg);
@@ -52,297 +55,189 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
     .nav-container {
-      max-width: 1200px;
+      max-width: 1280px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
     .logo {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--primary-color);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      transition: transform 0.3s ease;
+      font-size: 1.25rem; font-weight: 700; color: white; text-decoration: none;
+      display: flex; align-items: center; gap: 0.75rem; transition: transform 0.3s ease;
     }
-    .logo img {
-      height: 4rem;
-      width: auto;
-    }
-    .logo:hover {
-      transform: scale(1.05);
-    }
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-    }
+    .logo img { height: 4rem; width: auto; }
+    .logo:hover { transform: scale(1.05); }
+    .nav-links { display: flex; gap: 2.5rem; }
     .navbar a {
-      color: var(--text-color);
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 1.1rem;
-      transition: color 0.3s ease;
-      position: relative;
+      color: var(--text-color); text-decoration: none; font-weight: 500; font-size: 1.1rem;
+      transition: color 0.3s ease; position: relative; padding: 0.5rem 0;
     }
-    .navbar a:hover {
-      color: var(--primary-color);
-    }
+    .navbar a:hover { color: var(--primary-color); }
     .nav-links a::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: -4px;
-      left: 0;
-      background-color: var(--primary-color);
-      transition: width 0.3s ease;
+      content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 50%;
+      transform: translateX(-50%); background-color: var(--primary-color); transition: width 0.3s ease;
     }
-    .nav-links a:hover::after {
-      width: 100%;
-    }
+    .nav-links a:hover::after { width: 100%; }
     .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem;
-      flex: 1;
-      width: 100%;
-      box-sizing: border-box;
+      max-width: 1280px; margin: 0 auto; padding: 2rem;
+      flex: 1; width: 100%;
     }
-    main {
-      padding-top: 8rem; /* Space for navbar */
+    main { padding-top: 8rem; }
+    
+    .section-title {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+    .section-title h2 {
+        font-size: 2.8rem;
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+    }
+    .section-title p {
+        font-size: 1.1rem;
+        color: var(--text-color-darker);
+        max-width: 600px;
+        margin: 0 auto;
     }
 
     /* --- Hero Section --- */
-    .hero {
-      text-align: center;
-      padding: 4rem 0 2rem;
-    }
+    .hero { text-align: center; padding: 4rem 0 2rem; }
     .hero h1 {
-      font-size: 3.5rem;
-      font-weight: 800;
-      margin-bottom: 1.5rem;
-      line-height: 1.2;
+      font-size: 4rem; font-weight: 800; margin-bottom: 1.5rem; line-height: 1.2;
       background: linear-gradient(135deg, #ffffff, #a7a9ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      animation: fadeInDown 1s ease-out;
     }
     .hero .subtitle {
-      font-size: 1.25rem;
-      max-width: 650px;
-      margin: 0 auto 2.5rem;
-      color: var(--text-color-darker);
+      font-size: 1.25rem; max-width: 700px; margin: 0 auto 2.5rem;
+      color: var(--text-color-darker); animation: fadeInUp 1s ease-out 0.3s;
+      animation-fill-mode: both;
     }
     .cta-button-modern {
-      display: inline-block;
-      padding: 1rem 2.5rem;
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: white;
-      background: var(--primary-color);
-      border: none;
-      border-radius: 100px;
-      text-decoration: none;
-      transition: all 0.3s ease;
+      display: inline-block; padding: 1rem 2.5rem; font-size: 1.2rem; font-weight: 600;
+      color: white; background: var(--primary-color); border: none; border-radius: 100px;
+      text-decoration: none; transition: all 0.3s ease;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2), 0 0 15px var(--glow-color);
+      animation: fadeInUp 1s ease-out 0.6s; animation-fill-mode: both;
     }
     .cta-button-modern:hover {
-      background-color: var(--secondary-color);
-      transform: translateY(-3px) scale(1.05);
+      background-color: var(--secondary-color); transform: translateY(-3px) scale(1.05);
       box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3), 0 0 25px var(--glow-color);
     }
     .gif-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 3rem;
+        display: flex; justify-content: center; align-items: center; margin-top: 4rem;
+        animation: fadeInUp 1s ease-out 0.9s; animation-fill-mode: both;
     }
     .gif-container video {
-        max-width: 90%;
-        height: auto;
-        border-radius: 16px;
+        max-width: 90%; height: auto; border-radius: 16px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.4);
     }
     
     /* --- Features Section --- */
     .features-section {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      margin: 6rem 0;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 6rem 0;
     }
     .feature-card {
-      background: var(--card-bg);
-      backdrop-filter: blur(10px);
-      border-radius: 16px;
-      padding: 2.5rem 2rem;
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border: 1px solid var(--border-color);
-      position: relative;
+      background: var(--card-bg); backdrop-filter: blur(10px); border-radius: 16px;
+      padding: 2.5rem 2rem; text-align: center; transition: all 0.4s ease;
+      border: 1px solid var(--border-color); position: relative;
+      transform: translateY(20px); opacity: 0;
+    }
+    .feature-card.visible {
+      transform: translateY(0); opacity: 1;
+    }
+    .feature-card::before {
+        content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        border-radius: 16px; padding: 1px;
+        background: linear-gradient(135deg, transparent, var(--primary-color));
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: destination-out;
+        mask-composite: exclude;
+        opacity: 0; transition: opacity 0.4s ease;
     }
     .feature-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25), 0 0 20px var(--glow-color);
-      border-color: var(--primary-color);
+      transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25), 0 0 20px var(--glow-color);
     }
+    .feature-card:hover::before { opacity: 1; }
     .feature-icon {
-      background-color: var(--secondary-color);
-      height: 60px;
-      width: 60px;
-      border-radius: 12px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      height: 60px; width: 60px; border-radius: 12px;
+      display: inline-flex; align-items: center; justify-content: center;
+      margin-bottom: 1.5rem; box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
     }
-    .feature-icon svg {
-      width: 32px;
-      height: 32px;
-      color: white;
-    }
-    .feature-card h3 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin: 0 0 0.5rem;
-    }
-    .feature-card p {
-      color: var(--text-color-darker);
-      font-size: 1rem;
-    }
+    .feature-icon svg { width: 32px; height: 32px; color: white; }
+    .feature-card h3 { font-size: 1.5rem; font-weight: 600; margin: 0 0 0.5rem; }
+    .feature-card p { color: var(--text-color-darker); font-size: 1rem; }
 
     /* --- Discord CTA Section --- */
     .discord-cta-section {
-      text-align: center;
-      padding: 5rem 2rem;
-      background-color: var(--card-bg);
-      border: 1px solid var(--border-color);
-      backdrop-filter: blur(10px);
-      border-radius: 20px;
-      margin: 6rem 0;
+      text-align: center; padding: 5rem 2rem;
+      background: linear-gradient(145deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+      border: 1px solid var(--border-color); backdrop-filter: blur(10px);
+      border-radius: 20px; margin: 6rem 0;
+      transform: translateY(20px); opacity: 0; transition: all 0.6s ease;
     }
-    .discord-cta-section h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      font-weight: 700;
-    }
-    .discord-cta-section p {
-      font-size: 1.2rem;
-      opacity: 0.8;
-      max-width: 600px;
-      margin: 0 auto 2.5rem;
-    }
+    .discord-cta-section.visible { transform: translateY(0); opacity: 1; }
+    .discord-cta-section h2 { font-size: 2.5rem; margin-bottom: 1rem; font-weight: 700; }
+    .discord-cta-section p { font-size: 1.2rem; opacity: 0.8; max-width: 600px; margin: 0 auto 2.5rem; }
     .discord-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.75rem;
-      background-color: #5865F2;
-      color: white;
-      padding: 1rem 2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem;
+      background-color: #5865F2; color: white; padding: 1rem 2rem; border-radius: 8px;
+      text-decoration: none; font-weight: 600; transition: all 0.3s ease;
       box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
     }
     .discord-button:hover {
-      background-color: #4752C4;
-      transform: translateY(-3px) scale(1.05);
+      background-color: #4752C4; transform: translateY(-3px) scale(1.05);
       box-shadow: 0 8px 20px rgba(88, 101, 242, 0.4);
     }
 
     /* --- Reviews Section --- */
-    .reviews-section {
-      padding: 6rem 0;
-      text-align: center;
-    }
-    .reviews-section h2 {
-      font-size: 2.5rem;
-      margin-bottom: 3rem;
-      font-weight: 700;
-    }
     .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;
     }
     .review-card {
-      background-color: var(--card-bg);
-      padding: 2rem;
-      border-radius: 16px;
-      border: 1px solid var(--border-color);
-      backdrop-filter: blur(10px);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background-color: var(--card-bg); padding: 2rem; border-radius: 16px;
+      border: 1px solid var(--border-color); backdrop-filter: blur(10px);
+      transition: all 0.4s ease; transform: translateY(20px); opacity: 0;
     }
-    .review-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    }
-    .review-card .quote {
-      font-style: italic;
-      color: var(--text-color);
-      opacity: 0.9;
-    }
-    .review-card .author {
-      margin-top: 1.5rem;
-      font-weight: bold;
-      color: var(--primary-color);
-    }
-    .review-card .stars {
-      color: gold;
-      margin-top: 0.5rem;
-      font-size: 1.2rem;
-    }
+    .review-card.visible { transform: translateY(0); opacity: 1; }
+    .review-card:hover { transform: translateY(-5px); border-color: var(--primary-color); }
+    .review-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;}
+    .review-card .author { font-weight: bold; color: var(--primary-color); font-size: 1.1rem; }
+    .review-card .stars { color: #f59e0b; font-size: 1.1rem; }
+    .review-card .quote { font-style: italic; color: var(--text-color); opacity: 0.9; }
     
     /* --- Footer --- */
     footer {
-      background-color: rgba(17, 24, 39, 0.5);
-      text-align: center;
-      padding: 1.5rem 1rem;
-      margin-top: auto;
-      border-top: 1px solid var(--border-color);
-      font-size: 0.9rem;
-      color: var(--text-color-darker);
+      background-color: rgba(17, 24, 39, 0.5); text-align: center; padding: 1.5rem 1rem;
+      margin-top: auto; border-top: 1px solid var(--border-color);
+      font-size: 0.9rem; color: var(--text-color-darker);
     }
     
-    /* --- Hamburger Menu --- */
     .menu-toggle {
-        display: none;
-        flex-direction: column;
-        justify-content: space-around;
-        width: 2.5rem;
-        height: 2rem;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        padding: 0;
-        z-index: 10;
+        display: none; flex-direction: column; justify-content: space-around;
+        width: 2.5rem; height: 2rem; background: transparent; border: none; cursor: pointer; padding: 0; z-index: 10;
     }
     .menu-toggle .bar {
-        width: 2.5rem;
-        height: 0.25rem;
-        background-color: var(--text-color);
-        border-radius: 10px;
-        transition: all 0.3s ease-in-out;
+        width: 2.5rem; height: 0.25rem; background-color: var(--text-color);
+        border-radius: 10px; transition: all 0.3s ease-in-out;
     }
     
+    /* Animations */
+    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
     /* --- Responsive Design --- */
+    @media (max-width: 992px) {
+        .features-section { grid-template-columns: 1fr; gap: 1.5rem; margin: 4rem 0; }
+    }
     @media (max-width: 820px) {
         .logo .logo-text { display: none; }
         .logo img { height: 3.5rem; }
         .nav-links {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            background-color: var(--navbar-bg);
-            backdrop-filter: blur(10px);
-            flex-direction: column;
-            align-items: center;
-            padding: 1rem 0;
+            display: none; position: absolute; top: 100%; left: 0; width: 100%;
+            background-color: var(--navbar-bg); backdrop-filter: blur(10px);
+            flex-direction: column; align-items: center; padding: 1rem 0;
             border-top: 1px solid var(--border-color);
         }
         .nav-links.active { display: flex; }
@@ -355,9 +250,9 @@
         main { padding-top: 6rem; }
         .container { padding: 1rem; }
         .hero { padding: 2rem 0; }
-        .hero h1 { font-size: 2.5rem; }
+        .hero h1 { font-size: 2.8rem; }
         .hero .subtitle { font-size: 1.1rem; }
-        .features-section { grid-template-columns: 1fr; gap: 1.5rem; margin: 4rem 0; }
+        .section-title h2 { font-size: 2.2rem; }
         .discord-cta-section { padding: 3rem 1.5rem; margin: 4rem 0; }
         .discord-cta-section h2 { font-size: 2rem; }
         .reviews-section { padding: 4rem 0; }
@@ -396,64 +291,60 @@
     </div>
     </section>
 
+    <section class="section-title">
+      <h2>Why Choose SKYLIGHT?</h2>
+      <p>We're not just another host. We're gamers and developers building the platform we always wanted.</p>
+    </section>
     <section class="features-section">
-      <div class="feature-card">
-        <div class="feature-icon">
-          <!-- Minecraft Icon: Cube/Block -->
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9.75l-9-5.25M12 12.75l9 5.25" />
-          </svg>
-        </div>
-        <h3>Minecraft Hosting</h3>
-        <p>Experience ultra-low latency with our NVMe SSDs, full mod & plugin support, and one-click modpack installations.</p>
+      <div class="feature-card animated-item">
+        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9.75l-9-5.25M12 12.75l9 5.25" /></svg></div>
+        <h3>Minecraft Hosting</h3><p>Experience ultra-low latency with our NVMe SSDs, full mod & plugin support, and one-click modpack installations.</p>
       </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">
-          <!-- Rust Icon: Cog/Gear -->
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.438.995s.145.755.438.995l1.003.827c.48.398.668 1.03.26 1.431l-1.296 2.247a1.125 1.125 0 01-1.37.49l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.063-.374-.313-.686-.645-.87a6.52 6.52 0 01-.22-.127c-.324-.196-.72-.257-1.075-.124l-1.217.456a1.125 1.125 0 01-1.37-.49l-1.296-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.437-.995s-.145-.755-.437-.995l-1.004-.827a1.125 1.125 0 01-.26-1.431l1.296-2.247a1.125 1.125 0 011.37-.49l1.217.456c.355.133.75.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.213-1.28zM15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-          </svg>
-        </div>
-        <h3>Rust Hosting</h3>
-        <p>Dominate the island with high-performance CPUs, advanced DDoS protection, and full support for uMod/Oxide plugins.</p>
+      <div class="feature-card animated-item" style="transition-delay: 0.1s;">
+        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.438.995s.145.755.438.995l1.003.827c.48.398.668 1.03.26 1.431l-1.296 2.247a1.125 1.125 0 01-1.37.49l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.063-.374-.313-.686-.645-.87a6.52 6.52 0 01-.22-.127c-.324-.196-.72-.257-1.075-.124l-1.217.456a1.125 1.125 0 01-1.37-.49l-1.296-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.437-.995s-.145-.755-.437-.995l-1.004-.827a1.125 1.125 0 01-.26-1.431l1.296-2.247a1.125 1.125 0 011.37-.49l1.217.456c.355.133.75.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.213-1.28zM15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg></div>
+        <h3>Rust Hosting</h3><p>Dominate the island with high-performance CPUs, advanced DDoS protection, and full support for uMod/Oxide plugins.</p>
       </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">
-          <!-- Bot Icon: Chip -->
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V8.25a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 8.25v7.5A2.25 2.25 0 006.75 18z" />
-          </svg>
-        </div>
-        <h3>Discord Bot Hosting</h3>
-        <p>Keep your bot online 24/7. We offer reliable hosting for Python (discord.py) & JavaScript (discord.js) bots.</p>
+      <div class="feature-card animated-item" style="transition-delay: 0.2s;">
+        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V8.25a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 8.25v7.5A2.25 2.25 0 006.75 18z" /></svg></div>
+        <h3>Discord Bot Hosting</h3><p>Keep your bot online 24/7. We offer reliable hosting for Python (discord.py) & JavaScript (discord.js) bots.</p>
       </div>
     </section>
      
-    <section class="discord-cta-section">
+    <section class="discord-cta-section animated-item">
       <h2>Join Our Community</h2>
       <p>Get help, share ideas, and connect with thousands of other SKYLIGHT users on our official Discord server.</p>
-      <a href="https://discord.gg/EErzRQne72" class="discord-button">Join Our Discord Server</a>
+      <a href="https://discord.gg/EErzRQne72" class="discord-button">
+          <svg width="25" height="19" viewBox="0 0 25 19" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21.492 1.11C20.007 0.443 18.423 0 16.764 0C16.764 0 16.689 0.075 16.613 0.15L15.637 1.348C13.23 0.944 10.822 0.944 8.415 1.348L7.439 0.15C7.364 0.075 7.288 0 7.288 0C5.63 0 4.045 0.443 2.56 1.11C0.038 4.863 -0.589 8.54 0.702 12.066C2.287 15.441 5.342 17.618 9.475 17.892C9.55 17.967 9.702 17.892 9.777 17.817L10.531 16.84C10.154 16.618 9.852 16.396 9.55 16.173C9.475 16.173 9.4 16.1 9.4 15.948C9.4 15.948 9.324 15.873 9.324 15.798C5.926 15.13 3.627 13.028 2.56 10.647C2.485 10.425 2.56 10.128 2.787 10.053C2.938 9.978 3.166 9.978 3.316 10.053C3.693 10.2 4.07 10.352 4.447 10.503L5.074 10.725C5.149 10.725 5.3 10.65 5.3 10.5C5.3 9.596 5.703 8.767 6.33 8.083C6.33 8.083 6.405 8.008 6.405 7.933C6.33 7.858 6.255 7.783 6.18 7.708C4.594 6.22 4.142 4.732 4.217 3.243C4.217 3.243 4.293 3.168 4.368 3.168C5.853 2.576 7.213 2.354 8.49 2.354C8.49 2.354 8.565 2.429 8.565 2.504C8.415 3.541 8.415 4.578 8.565 5.615C8.565 5.69 8.49 5.765 8.415 5.765C8.038 5.765 7.661 5.765 7.359 5.84C7.132 5.84 6.981 6.062 7.132 6.22C7.584 6.624 7.961 7.103 8.263 7.582C8.338 7.733 8.565 7.733 8.641 7.582L8.943 7.103C9.018 6.952 8.943 6.726 8.792 6.651C8.792 6.576 10.006 6.172 11.365 6.172H12.68C14.04 6.172 15.253 6.576 15.253 6.651C15.027 6.726 15.027 6.952 15.102 7.103L15.404 7.582C15.479 7.733 15.706 7.733 15.781 7.582C16.083 7.103 16.46 6.624 16.912 6.22C17.063 6.062 16.912 5.84 16.685 5.84C16.383 5.765 16.006 5.765 15.629 5.765C15.554 5.765 15.479 5.69 15.479 5.615C15.629 4.578 15.629 3.541 15.479 2.504C15.479 2.429 15.554 2.354 15.629 2.354C16.906 2.354 18.194 2.576 19.679 3.168C19.754 3.168 19.83 3.243 19.83 3.243C19.905 4.732 19.453 6.22 17.867 7.708C17.792 7.783 17.717 7.858 17.641 7.933C17.641 8.008 17.717 8.083 17.717 8.083C18.344 8.767 18.747 9.596 18.747 10.5C18.747 10.65 18.898 10.725 18.973 10.725L19.599 10.503C19.976 10.352 20.353 10.2 20.655 10.053C20.806 9.978 21.033 9.978 21.26 10.053C21.487 10.128 21.563 10.425 21.487 10.647C20.345 13.028 18.121 15.13 14.723 15.798C14.723 15.873 14.648 15.948 14.648 15.948C14.648 16.1 14.572 16.173 14.497 16.173C14.195 16.396 13.893 16.618 13.516 16.84L14.27 17.817C14.345 17.892 14.497 17.967 14.572 17.892C18.705 17.618 21.76 15.441 23.345 12.066C24.559 8.465 24.007 4.788 21.492 1.11Z" fill="white"/></svg>
+          Join Our Discord Server
+      </a>
     </section>
   
-    <section id="reviews-section" class="reviews-section">
-      <h2>What Our Gamers Say</h2>
+    <section class="reviews-section">
+      <div class="section-title">
+        <h2>What Our Gamers Say</h2>
+        <p>Real reviews from real users. We're proud of our community and the performance we deliver.</p>
+      </div>
       <div class="reviews-grid">
-        <div class="review-card">
+        <div class="review-card animated-item">
+            <div class="review-header">
+                <p class="author">— SADIQ.</p>
+                <p class="stars">★★★★★</p>
+            </div>
           <p class="quote">"My Minecraft server has never run smoother! The performance is insane, and the one-click plugin installer is a lifesaver. Highly recommend SKYLIGHT."</p>
-          <p class="author">— SADIQ.</p>
-          <p class="stars">★★★★★</p>
         </div>
-        <div class="review-card">
+        <div class="review-card animated-item" style="transition-delay: 0.1s;">
+            <div class="review-header">
+                <p class="author">— MURTAJA.</p>
+                <p class="stars">★★★★★</p>
+            </div>
           <p class="quote">"The best Rust hosting support I’ve ever had. They helped me with custom map setups and were super friendly. It feels like they actually play the game!"</p>
-          <p class="author">— MURTAJA.</p>
-          <p class="stars">★★★★★★</p>
         </div>
-        <div class="review-card">
+        <div class="review-card animated-item" style="transition-delay: 0.2s;">
+            <div class="review-header">
+                <p class="author">— ╰༽ℕ𝔸𝕊𝕙𝕄𝔼ད 𝓂𝟟.</p>
+                <p class="stars">★★★★★</p>
+            </div>
           <p class="quote">"I host my Python Discord bot here and the uptime is flawless. The control panel makes managing my files and logs so easy. A++ service."</p>
-          <p class="author">— ╰༽ℕ𝔸𝕊𝕙𝕄𝔼ད 𝓂𝟟.</p>
-          <p class="stars">★★★★★</p>
         </div>
       </div>
     </section>
@@ -481,6 +372,20 @@
         menuToggle.classList.toggle('active');
         navLinks.classList.toggle('active');
     });
+
+    // Scroll-triggered animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.1 
+    });
+
+    const animatedItems = document.querySelectorAll('.animated-item');
+    animatedItems.forEach(item => observer.observe(item));
   </script>
 </body>
 </html>

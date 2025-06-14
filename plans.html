@@ -10,346 +10,201 @@
     :root {
       --primary-color: #6366f1;
       --secondary-color: #4f46e5;
+      --accent-color: #8b5cf6;
       --text-color: #e5e7eb;
       --text-color-darker: #9ca3af;
-      --border-color: rgba(255, 255, 255, 0.2);
-      --card-bg: rgba(17, 24, 39, 0.6);
+      --bg-color: #111827;
+      --card-bg: rgba(31, 41, 55, 0.5);
+      --card-bg-solid: #1f2937;
+      --border-color: rgba(255, 255, 255, 0.1);
       --navbar-bg: rgba(17, 24, 39, 0.7);
-      --success-color: #00ffaa;
+      --success-color: #10b981;
       --glow-color: rgba(99, 102, 241, 0.5);
     }
+    *, *::before, *::after { box-sizing: border-box; }
     body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      color: var(--text-color);
-      background-image: url('img/plans.webp');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
+      font-family: 'Inter', sans-serif; margin: 0; padding: 0; line-height: 1.6;
+      color: var(--text-color); background-color: var(--bg-color);
+      background-image: url('img/plans.webp'); background-size: cover;
+      background-position: center; background-repeat: no-repeat; background-attachment: fixed;
+      display: flex; flex-direction: column; min-height: 100vh;
     }
     .navbar {
-      background-color: var(--navbar-bg);
-      backdrop-filter: blur(10px);
-      padding: 0.5rem 1.5rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-      box-sizing: border-box;
+      background-color: var(--navbar-bg); backdrop-filter: blur(10px); padding: 0.5rem 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3); position: fixed;
+      width: 100%; top: 0; z-index: 1000;
     }
     .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      max-width: 1280px; margin: 0 auto; display: flex;
+      justify-content: space-between; align-items: center;
     }
     .logo {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--primary-color);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      transition: transform 0.3s ease;
+      font-size: 1.25rem; font-weight: 700; color: white; text-decoration: none;
+      display: flex; align-items: center; gap: 0.75rem; transition: transform 0.3s ease;
     }
-    .logo img {
-      height: 4rem;
-      width: auto;
-    }
-    .logo:hover {
-      transform: scale(1.05);
-    }
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-    }
+    .logo img { height: 4rem; width: auto; }
+    .logo:hover { transform: scale(1.05); }
+    .nav-links { display: flex; gap: 2.5rem; }
     .navbar a {
-      color: var(--text-color);
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 1.1rem;
-      transition: color 0.3s ease;
-      position: relative;
+      color: var(--text-color); text-decoration: none; font-weight: 500; font-size: 1.1rem;
+      transition: color 0.3s ease; position: relative; padding: 0.5rem 0;
     }
-    .navbar a:hover {
-      color: var(--primary-color);
-    }
+    .navbar a:hover { color: var(--primary-color); }
     .nav-links a::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: -4px;
-      left: 0;
-      background-color: var(--primary-color);
-      transition: width 0.3s ease;
+      content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 50%;
+      transform: translateX(-50%); background-color: var(--primary-color); transition: width 0.3s ease;
     }
-    .nav-links a:hover::after {
-      width: 100%;
-    }
+    .nav-links a:hover::after { width: 100%; }
     .container {
-      max-width: 1200px;
-      margin: 8rem auto 4rem;
-      padding: 2rem;
-      flex: 1;
-      width: 100%;
-      box-sizing: border-box;
+      max-width: 1280px; margin: 8rem auto 4rem; padding: 2rem;
+      flex: 1; width: 100%;
     }
 
-    .page-header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
+    .page-header { text-align: center; margin-bottom: 4rem; }
     .page-header .page-title {
-        font-size: 3rem;
-        font-weight: 800;
-        color: white;
-        margin-bottom: 1rem;
-        text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        font-size: 3.5rem; font-weight: 800; margin-bottom: 1rem;
+        background: linear-gradient(135deg, white, var(--accent-color));
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
     .page-header .page-subtitle {
-      font-size: 1.2rem;
-      color: var(--text-color-darker);
-      max-width: 600px;
-      margin: 0 auto;
+      font-size: 1.2rem; color: var(--text-color-darker); max-width: 600px; margin: 0 auto;
     }
     
     /* --- Tabs --- */
     .tabs-container {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 3rem;
-        gap: 1rem;
-        flex-wrap: wrap;
+        display: flex; justify-content: center; margin-bottom: 4rem;
+        gap: 1rem; flex-wrap: wrap; background-color: var(--card-bg-solid);
+        padding: 0.5rem; border-radius: 12px;
     }
     .tab-button {
-        padding: 0.75rem 1.5rem;
-        font-size: 1.1rem;
-        font-weight: 600;
-        background-color: var(--card-bg);
-        border: 2px solid var(--border-color);
-        color: var(--text-color);
-        border-radius: 12px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
+        padding: 0.75rem 1.5rem; font-size: 1.1rem; font-weight: 600;
+        background-color: transparent; border: none; color: var(--text-color-darker);
+        border-radius: 8px; cursor: pointer; transition: all 0.3s ease;
+        display: flex; align-items: center; gap: 0.5rem;
     }
-    .tab-button:hover {
-        background-color: rgba(255, 255, 255, 0.1);
-        border-color: var(--primary-color);
-    }
+    .tab-button:hover { color: white; background-color: rgba(255,255,255,0.1); }
     .tab-button.active {
-        background-color: var(--primary-color);
-        color: white;
-        border-color: var(--primary-color);
+        background-color: var(--primary-color); color: white;
         box-shadow: 0 0 15px var(--glow-color);
     }
-    .tab-button svg {
-        width: 24px;
-        height: 24px;
-    }
+    .tab-button svg { width: 24px; height: 24px; }
     
-    .pricing-grid-container {
-        display: none;
-    }
-    .pricing-grid-container.active {
-        display: block;
-    }
+    .pricing-grid-container { display: none; }
+    .pricing-grid-container.active { display: block; animation: fadeIn 0.5s ease; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
     .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      align-items: stretch; /* Make cards same height */
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2rem; align-items: stretch;
     }
     .pricing-card {
-      background: var(--card-bg);
-      backdrop-filter: blur(10px);
-      border-radius: 20px;
+      background: var(--card-bg); backdrop-filter: blur(12px);
+      border-radius: 20px; text-align: center;
+      transition: all 0.3s ease; position: relative;
+      border: 1px solid var(--border-color);
+      display: flex; flex-direction: column; overflow: hidden;
       padding: 2.5rem;
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-      overflow: hidden;
-      border: 2px solid var(--border-color);
-      display: flex;
-      flex-direction: column;
     }
     .pricing-card:hover {
       transform: translateY(-10px);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+      border-color: var(--primary-color);
     }
     .pricing-header h3 {
-      font-size: 1.75rem;
-      font-weight: 700;
-      margin: 0 0 0.5rem;
-      color: var(--text-color);
+      font-size: 1.75rem; font-weight: 700;
+      margin: 0 0 0.5rem; color: white;
     }
     .pricing-header p {
-      color: var(--text-color-darker);
-      margin: 0 0 2rem;
-      min-height: 40px; /* To align cards */
+      color: var(--text-color-darker); margin: 0 0 2rem; min-height: 40px;
     }
     .price {
-      font-size: 3.5rem;
-      font-weight: 800;
-      color: var(--primary-color);
-      margin: 0;
-      line-height: 1;
+      font-size: 3.5rem; font-weight: 800; color: white;
+      margin: 0; line-height: 1; display: flex; justify-content: center;
+      align-items: baseline; gap: 0.25rem;
     }
-    .price .currency {
-      font-size: 1.5rem;
-      font-weight: 500;
-      vertical-align: super;
-      margin-right: 4px;
-      color: var(--text-color-darker);
-    }
-    .price .period {
-        font-size: 1rem;
-        font-weight: 500;
-        color: var(--text-color-darker);
-    }
+    .price .currency { font-size: 1.5rem; font-weight: 500; color: var(--text-color-darker); }
+    .price .period { font-size: 1rem; font-weight: 500; color: var(--text-color-darker); }
     .features-list {
-      list-style: none;
-      padding: 0;
-      margin: 2.5rem 0;
-      text-align: left;
-      flex-grow: 1; /* Pushes button to bottom */
+      list-style: none; padding: 0; margin: 2.5rem 0;
+      text-align: left; flex-grow: 1;
     }
     .features-list li {
-      font-size: 1rem;
-      padding: 0.6rem 0;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 1rem; padding: 0.75rem 0;
+      display: flex; align-items: center; gap: 0.75rem;
+      border-bottom: 1px solid var(--border-color);
     }
-    .features-list li:last-child {
-      border-bottom: none;
-    }
-    .features-list li svg {
-      width: 20px;
-      height: 20px;
-      color: var(--success-color);
-      flex-shrink: 0;
-    }
+    .features-list li:last-child { border-bottom: none; }
+    .features-list li svg { width: 20px; height: 20px; color: var(--success-color); flex-shrink: 0; }
+    
     .plan-button {
-      display: inline-block;
-      background: var(--primary-color);
-      color: white;
-      padding: 0.8rem 1.5rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.1rem;
-      transition: all 0.3s ease;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-      width: 100%;
-      box-sizing: border-box;
-      margin-top: 1rem;
+      display: inline-block; background: var(--secondary-color); color: white;
+      padding: 1rem 1.5rem; border-radius: 8px; text-decoration: none;
+      font-weight: 600; font-size: 1.1rem; transition: all 0.3s ease;
+      width: 100%; margin-top: auto;
     }
     .plan-button:hover {
-      background: var(--secondary-color);
-      transform: translateY(-2px);
+      background: var(--primary-color); transform: translateY(-2px);
       box-shadow: 0 8px 16px var(--glow-color);
     }
     
     .pricing-card.popular {
-        border-color: var(--primary-color);
+        border: 2px solid var(--primary-color);
         transform: scale(1.05);
-        box-shadow: 0 0 30px var(--glow-color);
+        background: linear-gradient(180deg, var(--card-bg-solid), var(--bg-color));
     }
-    .pricing-card.popular:hover {
-        transform: scale(1.08) translateY(-10px);
+    .pricing-card.popular:hover { transform: scale(1.08) translateY(-10px); }
+    .pricing-card.popular .plan-button {
+        background: var(--primary-color);
+        box-shadow: 0 0 20px var(--glow-color);
     }
     .popular-badge {
-      position: absolute;
-      top: -1px;
-      right: 20px;
-      background: var(--primary-color);
-      color: white;
-      padding: 0.4rem 1rem;
-      font-size: 0.9rem;
-      font-weight: 700;
-      border-radius: 0 0 8px 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      position: absolute; top: 0; left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+      color: white; padding: 0.4rem 2rem;
+      font-size: 0.9rem; font-weight: 700;
+      border-radius: 0 0 12px 12px;
     }
 
     footer {
-      background-color: var(--navbar-bg);
-      color: var(--text-color-darker);
-      text-align: center;
-      padding: 1.5rem 1rem;
-      margin-top: auto;
+      background-color: var(--navbar-bg); color: var(--text-color-darker);
+      text-align: center; padding: 1.5rem 1rem; margin-top: auto;
       border-top: 1px solid var(--border-color);
     }
     
-    .menu-toggle {
-        display: none;
-        flex-direction: column;
-        justify-content: space-around;
-        width: 2.5rem;
-        height: 2rem;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        padding: 0;
-        z-index: 10;
-    }
-    .menu-toggle .bar {
-        width: 2.5rem;
-        height: 0.25rem;
-        background-color: var(--text-color);
-        border-radius: 10px;
-        transition: all 0.3s ease-in-out;
-    }
+    .menu-toggle { display: none; } /* Simplified for brevity */
     
     @media (max-width: 992px) {
-        .pricing-grid {
-            grid-template-columns: 1fr;
-        }
-        .pricing-card {
-            margin-bottom: 2rem;
-        }
-        .pricing-card.popular {
-            transform: scale(1.02);
-        }
-        .pricing-card.popular:hover {
-            transform: scale(1.05) translateY(-10px);
-        }
+        .pricing-grid { grid-template-columns: 1fr; }
+        .pricing-card { margin-bottom: 3rem; }
+        .pricing-card.popular { transform: scale(1.02); }
+        .pricing-card.popular:hover { transform: scale(1.05) translateY(-10px); }
+        .pricing-card:last-child { margin-bottom: 0; }
     }
     @media (max-width: 820px) {
-        .logo .logo-text { display: none; }
-        .logo img { height: 3.5rem; }
+        /* Mobile menu styles */
+        .logo .logo-text { display: none; } .logo img { height: 3.5rem; }
         .nav-links {
-            display: none;
-            position: absolute;
-            top: 100%; left: 0; width: 100%;
-            background-color: var(--navbar-bg);
-            backdrop-filter: blur(10px);
-            flex-direction: column; align-items: center;
-            padding: 1rem 0;
+            display: none; position: absolute; top: 100%; left: 0; width: 100%;
+            background-color: var(--navbar-bg); backdrop-filter: blur(10px);
+            flex-direction: column; align-items: center; padding: 1rem 0;
             border-top: 1px solid var(--border-color);
         }
         .nav-links.active { display: flex; }
         .nav-links a { padding: 1rem 0; font-size: 1.2rem; }
-        .menu-toggle { display: flex; }
+        .menu-toggle {
+          display: flex; flex-direction: column; justify-content: space-around;
+          width: 2.5rem; height: 2rem; background: transparent; border: none; cursor: pointer; padding: 0; z-index: 10;
+        }
+        .menu-toggle .bar {
+          width: 2.5rem; height: 0.25rem; background-color: var(--text-color);
+          border-radius: 10px; transition: all 0.3s ease-in-out;
+        }
         .menu-toggle.active .bar:nth-child(1) { transform: translateY(11px) rotate(45deg); }
         .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
         .menu-toggle.active .bar:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
         .container { padding: 1rem; margin-top: 6rem; }
-        .page-header .page-title { font-size: 2.2rem; }
+        .page-header .page-title { font-size: 2.5rem; }
         .page-header .page-subtitle { font-size: 1rem; }
         .pricing-card.popular { transform: scale(1); }
         .pricing-card.popular:hover { transform: translateY(-10px); }
@@ -385,52 +240,59 @@
     <div class="tabs-container">
         <button class="tab-button active" data-target="minecraft">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9.75l-9-5.25M12 12.75l9 5.25" /></svg>
-            Minecraft Hosting
+            Minecraft
         </button>
         <button class="tab-button" data-target="rust">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.438.995s.145.755.438.995l1.003.827c.48.398.668 1.03.26 1.431l-1.296 2.247a1.125 1.125 0 01-1.37.49l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.063-.374-.313-.686-.645-.87a6.52 6.52 0 01-.22-.127c-.324-.196-.72-.257-1.075-.124l-1.217.456a1.125 1.125 0 01-1.37-.49l-1.296-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.437-.995s-.145-.755-.437-.995l-1.004-.827a1.125 1.125 0 01-.26-1.431l1.296-2.247a1.125 1.125 0 011.37-.49l1.217.456c.355.133.75.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.213-1.28zM15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-            Rust Hosting
+            Rust
         </button>
         <button class="tab-button" data-target="bots">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V8.25a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 8.25v7.5A2.25 2.25 0 006.75 18z" /></svg>
-            Discord Bot Hosting
+            Discord Bots
         </button>
     </div>
+
+    <!-- Common SVG for checkmark -->
+    <svg width="0" height="0" style="position:absolute">
+        <symbol id="check" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+        </symbol>
+    </svg>
 
     <!-- Minecraft Plans -->
     <div id="minecraft" class="pricing-grid-container active">
         <div class="pricing-grid">
             <div class="pricing-card">
-                <div class="pricing-header"><h3>Creeper</h3><p>Ideal for small servers and playing with friends.</p><div class="price"><span class="currency">$</span>4.99<span class="period">/mo</span></div></div>
+                <div class="pricing-header"><h3>Creeper</h3><p>Ideal for small servers and playing with friends.</p><div class="price"><span class="currency">$</span>4<span class="period">.99/mo</span></div></div>
                 <ul class="features-list">
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>4GB DDR4 RAM</li>
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>40GB NVMe Storage</li>
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>Unlimited Player Slots</li>
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>Plugin & Mod Support</li>
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>DDoS Protection</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>4GB DDR4 RAM</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>40GB NVMe Storage</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>Unlimited Player Slots</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>Plugin & Mod Support</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>DDoS Protection</li>
                 </ul>
                 <a href="https://discord.gg/EErzRQne72" class="plan-button">Launch Server</a>
             </div>
             <div class="pricing-card popular">
                 <div class="popular-badge">Most Popular</div>
-                <div class="pricing-header"><h3>Ender Dragon</h3><p>For large communities and modded servers.</p><div class="price"><span class="currency">$</span>9.99<span class="period">/mo</span></div></div>
+                <div class="pricing-header"><h3>Ender Dragon</h3><p>For large communities and modded servers.</p><div class="price"><span class="currency">$</span>9<span class="period">.99/mo</span></div></div>
                 <ul class="features-list">
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>8GB DDR4 RAM</li>
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>80GB NVMe Storage</li>
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>Unlimited Player Slots</li>
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>1-Click Modpack Install</li>
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>Priority Support</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>8GB DDR4 RAM</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>80GB NVMe Storage</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>Unlimited Player Slots</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>1-Click Modpack Install</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>Priority Support</li>
                 </ul>
                 <a href="https://discord.gg/EErzRQne72" class="plan-button">Launch Server</a>
             </div>
             <div class="pricing-card">
-                <div class="pricing-header"><h3>Wither</h3><p>Maximum power for the most demanding networks.</p><div class="price"><span class="currency">$</span>15.99<span class="period">/mo</span></div></div>
+                <div class="pricing-header"><h3>Wither</h3><p>Maximum power for the most demanding networks.</p><div class="price"><span class="currency">$</span>15<span class="period">.99/mo</span></div></div>
                 <ul class="features-list">
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>16GB DDR4 RAM</li>
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>Unlimited NVMe Storage</li>
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>Unlimited Player Slots</li>
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>Dedicated IP Address</li>
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>Premium Support</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>16GB DDR4 RAM</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>Unlimited NVMe Storage</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>Unlimited Player Slots</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>Dedicated IP Address</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>Premium Support</li>
                 </ul>
                 <a href="https://discord.gg/EErzRQne72" class="plan-button">Launch Server</a>
             </div>
@@ -441,36 +303,36 @@
     <div id="rust" class="pricing-grid-container">
         <div class="pricing-grid">
             <div class="pricing-card">
-                <div class="pricing-header"><h3>Scrap</h3><p>Perfect for solo players or small group survival.</p><div class="price"><span class="currency">$</span>7.99<span class="period">/mo</span></div></div>
+                <div class="pricing-header"><h3>Scrap</h3><p>Perfect for solo players or small group survival.</p><div class="price"><span class="currency">$</span>7<span class="period">.99/mo</span></div></div>
                 <ul class="features-list">
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>50 Player Slots</li>
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>High CPU Priority</li>
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>20GB NVMe Storage</li>
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>uMod/Oxide Support</li>
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>Game DDoS Protection</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>50 Player Slots</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>High CPU Priority</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>20GB NVMe Storage</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>uMod/Oxide Support</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>Game DDoS Protection</li>
                 </ul>
                 <a href="https://discord.gg/EErzRQne72" class="plan-button">Deploy Server</a>
             </div>
             <div class="pricing-card popular">
                 <div class="popular-badge">Best Value</div>
-                <div class="pricing-header"><h3>Component</h3><p>The standard for clans and modded servers.</p><div class="price"><span class="currency">$</span>12.99<span class="period">/mo</span></div></div>
+                <div class="pricing-header"><h3>Component</h3><p>The standard for clans and modded servers.</p><div class="price"><span class="currency">$</span>12<span class="period">.99/mo</span></div></div>
                 <ul class="features-list">
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>100 Player Slots</li>
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>Very High CPU Priority</li>
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>40GB NVMe Storage</li>
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>1-Click Plugin Install</li>
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>Priority Support</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>100 Player Slots</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>Very High CPU Priority</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>40GB NVMe Storage</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>1-Click Plugin Install</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>Priority Support</li>
                 </ul>
                 <a href="https://discord.gg/EErzRQne72" class="plan-button">Deploy Server</a>
             </div>
             <div class="pricing-card">
-                <div class="pricing-header"><h3>High-Qual</h3><p>For large-scale servers needing peak performance.</p><div class="price"><span class="currency">$</span>19.99<span class="period">/mo</span></div></div>
+                <div class="pricing-header"><h3>High-Qual</h3><p>For large-scale servers needing peak performance.</p><div class="price"><span class="currency">$</span>19<span class="period">.99/mo</span></div></div>
                 <ul class="features-list">
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>200 Player Slots</li>
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>Extreme CPU Priority</li>
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>Unlimited NVMe Storage</li>
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>Dedicated IP Address</li>
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>Premium Support</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>200 Player Slots</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>Extreme CPU Priority</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>Unlimited NVMe Storage</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>Dedicated IP Address</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>Premium Support</li>
                 </ul>
                 <a href="https://discord.gg/EErzRQne72" class="plan-button">Deploy Server</a>
             </div>
@@ -481,33 +343,33 @@
     <div id="bots" class="pricing-grid-container">
         <div class="pricing-grid">
             <div class="pricing-card">
-                <div class="pricing-header"><h3>JS Bot</h3><p>Perfect for getting your Node.js bot online 24/7.</p><div class="price"><span class="currency">$</span>1.99<span class="period">/mo</span></div></div>
+                <div class="pricing-header"><h3>JS Bot</h3><p>Perfect for getting your Node.js bot online 24/7.</p><div class="price"><span class="currency">$</span>1<span class="period">.99/mo</span></div></div>
                 <ul class="features-list">
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>1GB RAM</li>
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>1 CPU Core</li>
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>5GB NVMe Storage</li>
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>Node.js Support</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>1GB RAM</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>1 CPU Core</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>5GB NVMe Storage</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>Node.js Support</li>
                 </ul>
                 <a href="https://discord.gg/EErzRQne72" class="plan-button">Host Bot</a>
             </div>
             <div class="pricing-card popular">
                 <div class="popular-badge">Top Choice</div>
-                <div class="pricing-header"><h3>Python Bot</h3><p>More power for complex bots and libraries.</p><div class="price"><span class="currency">$</span>2.99<span class="period">/mo</span></div></div>
+                <div class="pricing-header"><h3>Python Bot</h3><p>More power for complex bots and libraries.</p><div class="price"><span class="currency">$</span>2<span class="period">.99/mo</span></div></div>
                 <ul class="features-list">
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>2GB RAM</li>
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>2 CPU Cores</li>
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>10GB NVMe Storage</li>
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>Python Support</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>2GB RAM</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>2 CPU Cores</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>10GB NVMe Storage</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>Python Support</li>
                 </ul>
                 <a href="https://discord.gg/EErzRQne72" class="plan-button">Host Bot</a>
             </div>
             <div class="pricing-card">
-                <div class="pricing-header"><h3>Bot Pro</h3><p>For high-traffic bots with database requirements.</p><div class="price"><span class="currency">$</span>4.99<span class="period">/mo</span></div></div>
+                <div class="pricing-header"><h3>Bot Pro</h3><p>For high-traffic bots with database requirements.</p><div class="price"><span class="currency">$</span>4<span class="period">.99/mo</span></div></div>
                 <ul class="features-list">
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>4GB RAM</li>
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>4 CPU Cores</li>
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>20GB NVMe Storage</li>
-                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>Database Support</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>4GB RAM</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>4 CPU Cores</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>20GB NVMe Storage</li>
+                    <li><svg fill="currentColor"><use href="#check"/></svg>Database Support</li>
                 </ul>
                 <a href="https://discord.gg/EErzRQne72" class="plan-button">Host Bot</a>
             </div>
@@ -523,10 +385,12 @@
     // Mobile menu toggle functionality
     const menuToggle = document.getElementById('menu-toggle');
     const navLinks = document.getElementById('nav-links');
-    menuToggle.addEventListener('click', () => {
-        menuToggle.classList.toggle('active');
-        navLinks.classList.toggle('active');
-    });
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+    }
 
     // Tab functionality for plans page
     const tabButtons = document.querySelectorAll('.tab-button');
@@ -534,16 +398,10 @@
 
     tabButtons.forEach(button => {
         button.addEventListener('click', () => {
-            // Remove active state from all buttons and content
             tabButtons.forEach(btn => btn.classList.remove('active'));
             tabContents.forEach(content => content.classList.remove('active'));
-
-            // Add active state to the clicked button
             button.classList.add('active');
-            
-            // Show the corresponding content
-            const targetId = button.getAttribute('data-target');
-            const targetContent = document.getElementById(targetId);
+            const targetContent = document.getElementById(button.dataset.target);
             if (targetContent) {
                 targetContent.classList.add('active');
             }

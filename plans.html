@@ -1,19 +1,20 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SKYLIGHT Hosting - Plans</title>
-  <link rel="icon" type="image/png" href="img/SKYLIGHT Logo.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
-  <script type="text/javascript">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SKYLIGHT Hosting - Plans</title>
+<link href="img/SKYLIGHT Logo.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "ryu72adkni");
   </script>
-  <style>
+<style>
     :root {
       --primary-color: #6366f1;
       --secondary-color: #4f46e5;
@@ -218,177 +219,345 @@
     }
 
   </style>
-</head>
+<style>
+@keyframes floatIcon {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+.pricing-header img {
+  animation: floatIcon 3s ease-in-out infinite;
+}
+</style><style>
+.pricing-card:hover img {
+  transform: rotate(360deg);
+  transition: transform 0.8s ease-in-out;
+}
+</style><style>
+/* Flex row reverse when in RTL */
+.pricing-grid.rtl {
+  direction: rtl;
+}
+</style></head>
 <body>
-  <nav class="navbar">
-    <div class="nav-container">
-      <a href="index.html" class="logo">
-        <img src="img/SKYLIGHT Logo.png" alt="SKYLIGHT Hosting Logo">
-        <span class="logo-text">SKYLIGHT HOSTING</span>
-      </a>
-      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">
-        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-      </button>
-      <div class="nav-links" id="nav-links">
-        <a href="index.html">Home</a>
-        <a href="https://panel.SKYLIGHTmc.net/">Dashboard</a>
-        <a href="plans.html">Plans</a>
-        <a href="contact.html">Contact</a>
-      </div>
-    </div>
-  </nav>
+<nav class="navbar">
+<div class="nav-container">
+<a class="logo" href="index.html">
+<img alt="SKYLIGHT Hosting Logo" src="img/SKYLIGHT Logo.png"/>
+<span class="logo-text">SKYLIGHT HOSTING</span>
+</a>
+<button aria-label="Toggle navigation" class="menu-toggle" id="menu-toggle">
+<span class="bar"></span><span class="bar"></span><span class="bar"></span>
+</button>
+<div class="nav-links" id="nav-links">
+<a href="index.html">Home</a>
+<a href="https://panel.SKYLIGHTmc.net/">Dashboard</a>
+<a href="plans.html">Plans</a>
+<a href="contact.html">Contact</a>
+</div>
 
-  <div class="container">
-    <header class="page-header">
-      <h1 class="page-title">Find Your Perfect Plan</h1>
-      <p class="page-subtitle">Transparent pricing for Minecraft, Rust, and Discord Bots. All plans include 24/7 expert support and our performance guarantee.</p>
-    </header>
-
-    <div class="tabs-container">
-        <button class="tab-button active" data-target="minecraft">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9.75l-9-5.25M12 12.75l9 5.25" /></svg>
+<button id="lang-toggle" onclick="toggleLanguage()" style="padding: 0.5rem 1rem; background-color: var(--primary-color); color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;">
+  العربية
+</button>
+</div>
+</nav>
+<div class="container">
+<header class="page-header">
+<h1 class="page-title">Unleash the Beast Within Your Server</h1>
+<p class="page-subtitle">Simple, transparent pricing for Minecraft, Rust, and Discord Bots — with no surprises. Every plan comes with 24/7 expert support and a performance guarantee built for gamers.</p>
+</header>
+<div class="tabs-container">
+<button class="tab-button active" data-target="minecraft">
+<svg fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9.75l-9-5.25M12 12.75l9 5.25" stroke-linecap="round" stroke-linejoin="round"></path></svg>
             Minecraft
         </button>
-        <button class="tab-button" data-target="rust">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.438.995s.145.755.438.995l1.003.827c.48.398.668 1.03.26 1.431l-1.296 2.247a1.125 1.125 0 01-1.37.49l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.063-.374-.313-.686-.645-.87a6.52 6.52 0 01-.22-.127c-.324-.196-.72-.257-1.075-.124l-1.217.456a1.125 1.125 0 01-1.37-.49l-1.296-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.437-.995s-.145-.755-.437-.995l-1.004-.827a1.125 1.125 0 01-.26-1.431l1.296-2.247a1.125 1.125 0 011.37-.49l1.217.456c.355.133.75.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.213-1.28zM15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+<button class="tab-button" data-target="rust">
+<svg fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.438.995s.145.755.438.995l1.003.827c.48.398.668 1.03.26 1.431l-1.296 2.247a1.125 1.125 0 01-1.37.49l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.063-.374-.313-.686-.645-.87a6.52 6.52 0 01-.22-.127c-.324-.196-.72-.257-1.075-.124l-1.217.456a1.125 1.125 0 01-1.37-.49l-1.296-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.437-.995s-.145-.755-.437-.995l-1.004-.827a1.125 1.125 0 01-.26-1.431l1.296-2.247a1.125 1.125 0 011.37-.49l1.217.456c.355.133.75.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.213-1.28zM15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
             Rust
         </button>
-        <button class="tab-button" data-target="bots">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V8.25a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 8.25v7.5A2.25 2.25 0 006.75 18z" /></svg>
+<button class="tab-button" data-target="bots">
+<svg fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V8.25a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 8.25v7.5A2.25 2.25 0 006.75 18z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
             Discord Bots
         </button>
-    </div>
+</div>
+<!-- Common SVG for checkmark -->
+<svg height="0" style="position:absolute" width="0">
+<symbol id="check" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" fill-rule="evenodd"></path>
+</symbol>
+</svg>
+<!-- Minecraft Plans -->
+<div class="pricing-grid-container active" id="minecraft">
+<div class="pricing-grid">
+<div class="pricing-card">
+<div class="pricing-header">
+<img alt="Silverfish Icon" src="img/mobs/silverfish.png" style="width: 48px; height: 48px; margin-bottom: 10px;"/>
+<h3>Silverfish</h3>
+<p>AMD Ryzen 9 5950X</p>
+<div class="price"><span class="currency">$</span>0.50<span class="period">/mo</span></div>
+</div>
+<ul class="features-list">
+<li><svg fill="currentColor"><use href="#check"></use></svg>1GB DDR4 RAM</li>
+<li><svg fill="currentColor"><use href="#check"></use></svg>Unlimited Player Slots</li>
+<li><svg fill="currentColor"><use href="#check"></use></svg>DDoS Protection</li>
+</ul>
+<a class="plan-button" href="https://discord.com/invite/partnerhost">Launch Server</a>
+</div>
+<div class="pricing-card">
+<div class="pricing-header">
+<img alt="Zombie Icon" src="img/mobs/zombie.png" style="width: 48px; height: 48px; margin-bottom: 10px;"/>
+<h3>Zombie</h3>
+<p>AMD Ryzen 9 5950X</p>
+<div class="price"><span class="currency">$</span>1.00<span class="period">/mo</span></div>
+</div>
+<ul class="features-list">
+<li><svg fill="currentColor"><use href="#check"></use></svg>2GB DDR4 RAM</li>
+<li><svg fill="currentColor"><use href="#check"></use></svg>Unlimited Player Slots</li>
+<li><svg fill="currentColor"><use href="#check"></use></svg>DDoS Protection</li>
+</ul>
+<a class="plan-button" href="https://discord.com/invite/partnerhost">Launch Server</a>
+</div>
+<div class="pricing-card">
+<div class="pricing-header">
+<img alt="Skeleton Icon" src="img/mobs/skeleton.png" style="width: 48px; height: 48px; margin-bottom: 10px;"/>
+<h3>Skeleton</h3>
+<p>AMD Ryzen 9 5950X</p>
+<div class="price"><span class="currency">$</span>2.00<span class="period">/mo</span></div>
+</div>
+<ul class="features-list">
+<li><svg fill="currentColor"><use href="#check"></use></svg>4GB DDR4 RAM</li>
+<li><svg fill="currentColor"><use href="#check"></use></svg>Unlimited Player Slots</li>
+<li><svg fill="currentColor"><use href="#check"></use></svg>DDoS Protection</li>
+</ul>
+<a class="plan-button" href="https://discord.com/invite/partnerhost">Launch Server</a>
+</div>
+<div class="pricing-card">
+<div class="pricing-header">
+<img alt="Spider Icon" src="img/mobs/spider.png" style="width: 48px; height: 48px; margin-bottom: 10px;"/>
+<h3>Spider</h3>
+<p>AMD Ryzen 9 5950X</p>
+<div class="price"><span class="currency">$</span>3.00<span class="period">/mo</span></div>
+</div>
+<ul class="features-list">
+<li><svg fill="currentColor"><use href="#check"></use></svg>6GB DDR4 RAM</li>
+<li><svg fill="currentColor"><use href="#check"></use></svg>Unlimited Player Slots</li>
+<li><svg fill="currentColor"><use href="#check"></use></svg>DDoS Protection</li>
+</ul>
+<a class="plan-button" href="https://discord.com/invite/partnerhost">Launch Server</a>
+</div>
+<div class="pricing-card">
+<div class="pricing-header">
+<img alt="Creeper Icon" src="img/mobs/creeper.png" style="width: 48px; height: 48px; margin-bottom: 10px;"/>
+<h3>Creeper</h3>
+<p>AMD Ryzen 9 5950X</p>
+<div class="price"><span class="currency">$</span>4.00<span class="period">/mo</span></div>
+</div>
+<ul class="features-list">
+<li><svg fill="currentColor"><use href="#check"></use></svg>8GB DDR4 RAM</li>
+<li><svg fill="currentColor"><use href="#check"></use></svg>Unlimited Player Slots</li>
+<li><svg fill="currentColor"><use href="#check"></use></svg>DDoS Protection</li>
+</ul>
+<a class="plan-button" href="https://discord.com/invite/partnerhost">Launch Server</a>
+</div>
+<div class="pricing-card">
+<div class="pricing-header">
+<img alt="Slime Icon" src="img/mobs/slime.png" style="width: 48px; height: 48px; margin-bottom: 10px;"/>
+<h3>Slime</h3>
+<p>AMD Ryzen 9 5950X</p>
+<div class="price"><span class="currency">$</span>5.00<span class="period">/mo</span></div>
+</div>
+<ul class="features-list">
+<li><svg fill="currentColor"><use href="#check"></use></svg>10GB DDR4 RAM</li>
+<li><svg fill="currentColor"><use href="#check"></use></svg>Unlimited Player Slots</li>
+<li><svg fill="currentColor"><use href="#check"></use></svg>DDoS Protection</li>
+</ul>
+<a class="plan-button" href="https://discord.com/invite/partnerhost">Launch Server</a>
+</div>
+<div class="pricing-card">
+<div class="pricing-header">
+<img alt="Enderman Icon" src="img/mobs/enderman.png" style="width: 48px; height: 48px; margin-bottom: 10px;"/>
+<h3>Enderman</h3>
+<p>AMD Ryzen 9 5950X</p>
+<div class="price"><span class="currency">$</span>6.00<span class="period">/mo</span></div>
+</div>
+<ul class="features-list">
+<li><svg fill="currentColor"><use href="#check"></use></svg>12GB DDR4 RAM</li>
+<li><svg fill="currentColor"><use href="#check"></use></svg>Unlimited Player Slots</li>
+<li><svg fill="currentColor"><use href="#check"></use></svg>DDoS Protection</li>
+</ul>
+<a class="plan-button" href="https://discord.com/invite/partnerhost">Launch Server</a>
+</div>
+<div class="pricing-card">
+<div class="pricing-header">
+<img alt="Witch Icon" src="img/mobs/witch.png" style="width: 48px; height: 48px; margin-bottom: 10px;"/>
+<h3>Witch</h3>
+<p>AMD Ryzen 9 5950X</p>
+<div class="price"><span class="currency">$</span>7.00<span class="period">/mo</span></div>
+</div>
+<ul class="features-list">
+<li><svg fill="currentColor"><use href="#check"></use></svg>14GB DDR4 RAM</li>
+<li><svg fill="currentColor"><use href="#check"></use></svg>Unlimited Player Slots</li>
+<li><svg fill="currentColor"><use href="#check"></use></svg>DDoS Protection</li>
+</ul>
+<a class="plan-button" href="https://discord.com/invite/partnerhost">Launch Server</a>
+</div>
+<div class="pricing-card">
+<div class="pricing-header">
+<img alt="Blaze Icon" src="img/mobs/blaze.png" style="width: 48px; height: 48px; margin-bottom: 10px;"/>
+<h3>Blaze</h3>
+<p>AMD Ryzen 9 5950X</p>
+<div class="price"><span class="currency">$</span>8.00<span class="period">/mo</span></div>
+</div>
+<ul class="features-list">
+<li><svg fill="currentColor"><use href="#check"></use></svg>16GB DDR4 RAM</li>
+<li><svg fill="currentColor"><use href="#check"></use></svg>Unlimited Player Slots</li>
+<li><svg fill="currentColor"><use href="#check"></use></svg>DDoS Protection</li>
+</ul>
+<a class="plan-button" href="https://discord.com/invite/partnerhost">Launch Server</a>
+</div>
+</div>
 
-    <!-- Common SVG for checkmark -->
-    <svg width="0" height="0" style="position:absolute">
-        <symbol id="check" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-        </symbol>
-    </svg>
 
-    <!-- Minecraft Plans -->
-    <div id="minecraft" class="pricing-grid-container active">
-        <div class="pricing-grid">
-            <div class="pricing-card">
-                <div class="pricing-header"><h3>Creeper</h3><p>Ideal for small servers and playing with friends.</p><div class="price"><span class="currency">$</span>4<span class="period">.99/mo</span></div></div>
-                <ul class="features-list">
-                    <li><svg fill="currentColor"><use href="#check"/></svg>4GB DDR4 RAM</li>
-                    <li><svg fill="currentColor"><use href="#check"/></svg>40GB NVMe Storage</li>
-                    <li><svg fill="currentColor"><use href="#check"/></svg>Unlimited Player Slots</li>
-                    <li><svg fill="currentColor"><use href="#check"/></svg>Plugin & Mod Support</li>
-                    <li><svg fill="currentColor"><use href="#check"/></svg>DDoS Protection</li>
-                </ul>
-                <a href="https://discord.gg/EErzRQne72" class="plan-button">Launch Server</a>
-            </div>
-            <div class="pricing-card popular">
-                <div class="popular-badge">Most Popular</div>
-                <div class="pricing-header"><h3>Ender Dragon</h3><p>For large communities and modded servers.</p><div class="price"><span class="currency">$</span>9<span class="period">.99/mo</span></div></div>
-                <ul class="features-list">
-                    <li><svg fill="currentColor"><use href="#check"/></svg>8GB DDR4 RAM</li>
-                    <li><svg fill="currentColor"><use href="#check"/></svg>80GB NVMe Storage</li>
-                    <li><svg fill="currentColor"><use href="#check"/></svg>Unlimited Player Slots</li>
-                    <li><svg fill="currentColor"><use href="#check"/></svg>1-Click Modpack Install</li>
-                    <li><svg fill="currentColor"><use href="#check"/></svg>Priority Support</li>
-                </ul>
-                <a href="https://discord.gg/EErzRQne72" class="plan-button">Launch Server</a>
-            </div>
-            <div class="pricing-card">
-                <div class="pricing-header"><h3>Wither</h3><p>Maximum power for the most demanding networks.</p><div class="price"><span class="currency">$</span>15<span class="period">.99/mo</span></div></div>
-                <ul class="features-list">
-                    <li><svg fill="currentColor"><use href="#check"/></svg>16GB DDR4 RAM</li>
-                    <li><svg fill="currentColor"><use href="#check"/></svg>Unlimited NVMe Storage</li>
-                    <li><svg fill="currentColor"><use href="#check"/></svg>Unlimited Player Slots</li>
-                    <li><svg fill="currentColor"><use href="#check"/></svg>Dedicated IP Address</li>
-                    <li><svg fill="currentColor"><use href="#check"/></svg>Premium Support</li>
-                </ul>
-                <a href="https://discord.gg/EErzRQne72" class="plan-button">Launch Server</a>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Rust Plans -->
-    <div id="rust" class="pricing-grid-container">
-        <div class="pricing-grid">
-            <div class="pricing-card">
-                <div class="pricing-header"><h3>Scrap</h3><p>Perfect for solo players or small group survival.</p><div class="price"><span class="currency">$</span>7<span class="period">.99/mo</span></div></div>
-                <ul class="features-list">
-                    <li><svg fill="currentColor"><use href="#check"/></svg>50 Player Slots</li>
-                    <li><svg fill="currentColor"><use href="#check"/></svg>High CPU Priority</li>
-                    <li><svg fill="currentColor"><use href="#check"/></svg>20GB NVMe Storage</li>
-                    <li><svg fill="currentColor"><use href="#check"/></svg>uMod/Oxide Support</li>
-                    <li><svg fill="currentColor"><use href="#check"/></svg>Game DDoS Protection</li>
-                </ul>
-                <a href="https://discord.gg/EErzRQne72" class="plan-button">Deploy Server</a>
-            </div>
-            <div class="pricing-card popular">
-                <div class="popular-badge">Best Value</div>
-                <div class="pricing-header"><h3>Component</h3><p>The standard for clans and modded servers.</p><div class="price"><span class="currency">$</span>12<span class="period">.99/mo</span></div></div>
-                <ul class="features-list">
-                    <li><svg fill="currentColor"><use href="#check"/></svg>100 Player Slots</li>
-                    <li><svg fill="currentColor"><use href="#check"/></svg>Very High CPU Priority</li>
-                    <li><svg fill="currentColor"><use href="#check"/></svg>40GB NVMe Storage</li>
-                    <li><svg fill="currentColor"><use href="#check"/></svg>1-Click Plugin Install</li>
-                    <li><svg fill="currentColor"><use href="#check"/></svg>Priority Support</li>
-                </ul>
-                <a href="https://discord.gg/EErzRQne72" class="plan-button">Deploy Server</a>
-            </div>
-            <div class="pricing-card">
-                <div class="pricing-header"><h3>High-Qual</h3><p>For large-scale servers needing peak performance.</p><div class="price"><span class="currency">$</span>19<span class="period">.99/mo</span></div></div>
-                <ul class="features-list">
-                    <li><svg fill="currentColor"><use href="#check"/></svg>200 Player Slots</li>
-                    <li><svg fill="currentColor"><use href="#check"/></svg>Extreme CPU Priority</li>
-                    <li><svg fill="currentColor"><use href="#check"/></svg>Unlimited NVMe Storage</li>
-                    <li><svg fill="currentColor"><use href="#check"/></svg>Dedicated IP Address</li>
-                    <li><svg fill="currentColor"><use href="#check"/></svg>Premium Support</li>
-                </ul>
-                <a href="https://discord.gg/EErzRQne72" class="plan-button">Deploy Server</a>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Bot Plans -->
-    <div id="bots" class="pricing-grid-container">
-        <div class="pricing-grid">
-            <div class="pricing-card">
-                <div class="pricing-header"><h3>JS Bot</h3><p>Perfect for getting your Node.js bot online 24/7.</p><div class="price"><span class="currency">$</span>1<span class="period">.99/mo</span></div></div>
-                <ul class="features-list">
-                    <li><svg fill="currentColor"><use href="#check"/></svg>1GB RAM</li>
-                    <li><svg fill="currentColor"><use href="#check"/></svg>1 CPU Core</li>
-                    <li><svg fill="currentColor"><use href="#check"/></svg>5GB NVMe Storage</li>
-                    <li><svg fill="currentColor"><use href="#check"/></svg>Node.js Support</li>
-                </ul>
-                <a href="https://discord.gg/EErzRQne72" class="plan-button">Host Bot</a>
-            </div>
-            <div class="pricing-card popular">
-                <div class="popular-badge">Top Choice</div>
-                <div class="pricing-header"><h3>Python Bot</h3><p>More power for complex bots and libraries.</p><div class="price"><span class="currency">$</span>2<span class="period">.99/mo</span></div></div>
-                <ul class="features-list">
-                    <li><svg fill="currentColor"><use href="#check"/></svg>2GB RAM</li>
-                    <li><svg fill="currentColor"><use href="#check"/></svg>2 CPU Cores</li>
-                    <li><svg fill="currentColor"><use href="#check"/></svg>10GB NVMe Storage</li>
-                    <li><svg fill="currentColor"><use href="#check"/></svg>Python Support</li>
-                </ul>
-                <a href="https://discord.gg/EErzRQne72" class="plan-button">Host Bot</a>
-            </div>
-            <div class="pricing-card">
-                <div class="pricing-header"><h3>Bot Pro</h3><p>For high-traffic bots with database requirements.</p><div class="price"><span class="currency">$</span>4<span class="period">.99/mo</span></div></div>
-                <ul class="features-list">
-                    <li><svg fill="currentColor"><use href="#check"/></svg>4GB RAM</li>
-                    <li><svg fill="currentColor"><use href="#check"/></svg>4 CPU Cores</li>
-                    <li><svg fill="currentColor"><use href="#check"/></svg>20GB NVMe Storage</li>
-                    <li><svg fill="currentColor"><use href="#check"/></svg>Database Support</li>
-                </ul>
-                <a href="https://discord.gg/EErzRQne72" class="plan-button">Host Bot</a>
-            </div>
-        </div>
-    </div>
-  </div>
 
-  <footer>
+
+<script>
+  function toggleLargerPlans() {
+    const section = document.getElementById('larger-plans-section');
+    const button = document.getElementById('toggle-plans-button');
+    const isVisible = section.style.display === 'block';
+    section.style.display = isVisible ? 'none' : 'block';
+    button.textContent = isVisible ? 'See Larger Plans' : 'Hide Larger Plans';
+  }
+</script>
+
+<div style="text-align: center; margin-top: 2rem;">
+<button id="toggle-plans-button" onclick="toggleLargerPlans()" style="padding: 1rem 2rem; font-size: 1.2rem; font-weight: 600; background-color: var(--primary-color); color: white; border: none; border-radius: 8px; cursor: pointer; box-shadow: 0 0 10px var(--glow-color);">
+    See Larger Plans
+  </button>
+</div>
+<div id="larger-plans-section" style="display:none; margin-top: 3rem;">
+<div class="pricing-grid">
+<div class="pricing-card">
+<div class="pricing-header">
+<img alt="Wither Icon" src="img/mobs/wither.png" style="width: 48px; height: 48px; margin-bottom: 10px;"/>
+<h3>Wither</h3>
+<p>AMD Ryzen 9 5950X</p>
+<div class="price"><span class="currency">$</span>12.00<span class="period">/mo</span></div>
+</div>
+<ul class="features-list">
+<li><svg fill="currentColor"><use href="#check"></use></svg>24GB DDR4 RAM</li>
+<li><svg fill="currentColor"><use href="#check"></use></svg>Unlimited Player Slots</li>
+<li><svg fill="currentColor"><use href="#check"></use></svg>Dedicated IP</li>
+</ul>
+<a class="plan-button" href="https://discord.com/invite/partnerhost">Launch Server</a>
+</div>
+<div class="pricing-card">
+<div class="pricing-header">
+<img alt="Warden Icon" src="img/mobs/warden.png" style="width: 48px; height: 48px; margin-bottom: 10px;"/>
+<h3>Warden</h3>
+<p>AMD Ryzen 9 5950X</p>
+<div class="price"><span class="currency">$</span>14.00<span class="period">/mo</span></div>
+</div>
+<ul class="features-list">
+<li><svg fill="currentColor"><use href="#check"></use></svg>28GB DDR4 RAM</li>
+<li><svg fill="currentColor"><use href="#check"></use></svg>Unlimited Player Slots</li>
+<li><svg fill="currentColor"><use href="#check"></use></svg>Premium Support</li>
+</ul>
+<a class="plan-button" href="https://discord.com/invite/partnerhost">Launch Server</a>
+</div>
+<div class="pricing-card">
+<div class="pricing-header">
+<img alt="Ender Dragon Icon" src="img/mobs/ender_dragon.png" style="width: 48px; height: 48px; margin-bottom: 10px;"/>
+<h3>Ender Dragon</h3>
+<p>AMD Ryzen 9 5950X</p>
+<div class="price"><span class="currency">$</span>16.00<span class="period">/mo</span></div>
+</div>
+<ul class="features-list">
+<li><svg fill="currentColor"><use href="#check"></use></svg>32GB DDR4 RAM</li>
+<li><svg fill="currentColor"><use href="#check"></use></svg>Unlimited Player Slots</li>
+<li><svg fill="currentColor"><use href="#check"></use></svg>24/7 Priority Support</li>
+</ul>
+<a class="plan-button" href="https://discord.com/invite/partnerhost">Launch Server</a>
+</div>
+</div>
+</div>
+
+
+</div>
+<!-- Rust Plans -->
+<div class="pricing-grid-container" id="rust">
+<div class="pricing-grid">
+<div class="pricing-card">
+<div class="pricing-header"><h3>Scrap</h3><p>Perfect for solo players or small group survival.</p><div class="price"><span class="currency">$</span>7<span class="period">.99/mo</span></div></div>
+<ul class="features-list">
+<li><svg fill="currentColor"><use href="#check"></use></svg>50 Player Slots</li>
+<li><svg fill="currentColor"><use href="#check"></use></svg>High CPU Priority</li>
+<li><svg fill="currentColor"><use href="#check"></use></svg>uMod/Oxide Support</li>
+<li><svg fill="currentColor"><use href="#check"></use></svg>Game DDoS Protection</li>
+</ul>
+<a class="plan-button" href="https://discord.com/invite/partnerhost">Deploy Server</a>
+</div>
+<div class="pricing-card popular">
+<div class="popular-badge">Best Value</div>
+<div class="pricing-header"><h3>Component</h3><p>The standard for clans and modded servers.</p><div class="price"><span class="currency">$</span>12<span class="period">.99/mo</span></div></div>
+<ul class="features-list">
+<li><svg fill="currentColor"><use href="#check"></use></svg>100 Player Slots</li>
+<li><svg fill="currentColor"><use href="#check"></use></svg>Very High CPU Priority</li>
+<li><svg fill="currentColor"><use href="#check"></use></svg>1-Click Plugin Install</li>
+<li><svg fill="currentColor"><use href="#check"></use></svg>Priority Support</li>
+</ul>
+<a class="plan-button" href="https://discord.com/invite/partnerhost">Deploy Server</a>
+</div>
+<div class="pricing-card">
+<div class="pricing-header"><h3>High-Qual</h3><p>For large-scale servers needing peak performance.</p><div class="price"><span class="currency">$</span>19<span class="period">.99/mo</span></div></div>
+<ul class="features-list">
+<li><svg fill="currentColor"><use href="#check"></use></svg>200 Player Slots</li>
+<li><svg fill="currentColor"><use href="#check"></use></svg>Extreme CPU Priority</li>
+<li><svg fill="currentColor"><use href="#check"></use></svg>Dedicated IP Address</li>
+<li><svg fill="currentColor"><use href="#check"></use></svg>Premium Support</li>
+</ul>
+<a class="plan-button" href="https://discord.com/invite/partnerhost">Deploy Server</a>
+</div>
+</div>
+</div>
+<!-- Bot Plans -->
+<div class="pricing-grid-container" id="bots">
+<div class="pricing-grid">
+<div class="pricing-card">
+<div class="pricing-header"><h3>JS Bot</h3><p>Perfect for getting your Node.js bot online 24/7.</p><div class="price"><span class="currency">$</span>1<span class="period">.99/mo</span></div></div>
+<ul class="features-list">
+<li><svg fill="currentColor"><use href="#check"></use></svg>1GB RAM</li>
+<li><svg fill="currentColor"><use href="#check"></use></svg>1 CPU Core</li>
+<li><svg fill="currentColor"><use href="#check"></use></svg>Node.js Support</li>
+</ul>
+<a class="plan-button" href="https://discord.com/invite/partnerhost">Host Bot</a>
+</div>
+<div class="pricing-card popular">
+<div class="popular-badge">Top Choice</div>
+<div class="pricing-header"><h3>Python Bot</h3><p>More power for complex bots and libraries.</p><div class="price"><span class="currency">$</span>2<span class="period">.99/mo</span></div></div>
+<ul class="features-list">
+<li><svg fill="currentColor"><use href="#check"></use></svg>2GB RAM</li>
+<li><svg fill="currentColor"><use href="#check"></use></svg>2 CPU Cores</li>
+<li><svg fill="currentColor"><use href="#check"></use></svg>Python Support</li>
+</ul>
+<a class="plan-button" href="https://discord.com/invite/partnerhost">Host Bot</a>
+</div>
+<div class="pricing-card">
+<div class="pricing-header"><h3>Bot Pro</h3><p>For high-traffic bots with database requirements.</p><div class="price"><span class="currency">$</span>4<span class="period">.99/mo</span></div></div>
+<ul class="features-list">
+<li><svg fill="currentColor"><use href="#check"></use></svg>4GB RAM</li>
+<li><svg fill="currentColor"><use href="#check"></use></svg>4 CPU Cores</li>
+<li><svg fill="currentColor"><use href="#check"></use></svg>Database Support</li>
+</ul>
+<a class="plan-button" href="https://discord.com/invite/partnerhost">Host Bot</a>
+</div>
+</div>
+</div>
+</div>
+<footer>
     © 2025 SKYLIGHT Hosting. All rights reserved.
   </footer>
-
-  <script>
+<script>
     // Mobile menu toggle functionality
     const menuToggle = document.getElementById('menu-toggle');
     const navLinks = document.getElementById('nav-links');
@@ -415,5 +584,177 @@
         });
     });
   </script>
+
+
+
+
+
+
+
+
+
+
+<script>
+function toggleLanguage() {
+  const langButton = document.getElementById('lang-toggle');
+  const isArabic = document.documentElement.lang === 'ar';
+  document.documentElement.lang = isArabic ? 'en' : 'ar';
+  langButton.textContent = isArabic ? 'العربية' : 'English';
+
+  const translations = {
+    'Unleash the Beast Within Your Server': 'أطلق الوحش داخل خادمك',
+    'Simple, transparent pricing for Minecraft, Rust, and Discord Bots — with no surprises. Every plan comes with 24/7 expert support and a performance guarantee built for gamers.':
+      'أسعار شفافة وبسيطة لماينكرافت، راست، وبوتات ديسكورد — بدون مفاجآت. جميع الخطط تشمل دعماً فنياً 24/7 وضمان أداء مصمم للاعبين.',
+    'Launch Server': 'تشغيل الخادم',
+    'See Larger Plans': 'عرض الخطط الأكبر',
+    'Hide Larger Plans': 'إخفاء الخطط الأكبر',
+    'Deploy Server': 'تشغيل الخادم',
+    'Host Bot': 'تشغيل البوت',
+    'Minecraft': 'ماينكرافت',
+    'Rust': 'راست',
+    'Discord Bots': 'بوتات ديسكورد',
+    'Unlimited Player Slots': 'فتحات غير محدودة للاعبين',
+    'DDoS Protection': 'حماية ضد هجمات DDoS',
+    'Plugin & Mod Support': 'دعم الإضافات والمودات',
+    '1-Click Modpack Install': 'تثبيت المودباك بنقرة واحدة',
+    'Priority Support': 'دعم أولوية',
+    'Unlimited NVMe Storage': 'تخزين NVMe غير محدود',
+    'Dedicated IP Address': 'عنوان IP مخصص',
+    'Premium Support': 'دعم مميز',
+    'High CPU Priority': 'أولوية عالية للمعالج',
+    'Very High CPU Priority': 'أولوية عالية جداً للمعالج',
+    'Extreme CPU Priority': 'أقصى أولوية للمعالج',
+    '50 Player Slots': '50 فتحة للاعبين',
+    '100 Player Slots': '100 فتحة للاعبين',
+    '200 Player Slots': '200 فتحة للاعبين',
+    'uMod/Oxide Support': 'دعم uMod/Oxide',
+    'Game DDoS Protection': 'حماية DDoS مخصصة للألعاب',
+    '1-Click Plugin Install': 'تثبيت الإضافات بنقرة واحدة',
+    '5GB NVMe Storage': '5 جيجابايت تخزين NVMe',
+    '10GB NVMe Storage': '10 جيجابايت تخزين NVMe',
+    '20GB NVMe Storage': '20 جيجابايت تخزين NVMe',
+    'Database Support': 'دعم قواعد البيانات',
+    'Node.js Support': 'دعم Node.js',
+    'Python Support': 'دعم Python',
+    'Silverfish': 'السمكة الفضية',
+    'Zombie': 'زومبي',
+    'Skeleton': 'هيكل عظمي',
+    'Spider': 'عنكبوت',
+    'Creeper': 'كريبر',
+    'Slime': 'سلايم',
+    'Enderman': 'إنديرمان',
+    'Witch': 'ساحرة',
+    'Blaze': 'بليز',
+    'Guardian': 'جارديان',
+    'Evoker': 'إيفوكر',
+    'Ravager': 'رافاجر',
+    'Wither': 'ويذر',
+    'Warden': 'واردن',
+    'Piglin Brute': 'بروت بيجلن',
+    'Ender Dragon': 'تنين الإند'
+  };
+
+  document.querySelectorAll('h1, h2, h3, p, a, button, li').forEach(el => {
+    const text = el.textContent.trim();
+    if (translations[text]) {
+      el.textContent = translations[text];
+    } else {
+      const eng = Object.keys(translations).find(key => translations[key] === text);
+      if (eng) el.textContent = eng;
+    }
+  });
+
+  // Adjust layout direction for pricing-grid sections
+  const grids = document.querySelectorAll('.pricing-grid');
+  grids.forEach(grid => {
+    if (!isArabic) {
+      grid.classList.add('rtl');
+    } else {
+      grid.classList.remove('rtl');
+    }
+  });
+}
+</script>
+
+
+<script>
+  function toggleLanguage() {
+    const langButton = document.getElementById('lang-toggle');
+    const isArabic = document.documentElement.lang === 'ar';
+    document.documentElement.lang = isArabic ? 'en' : 'ar';
+    langButton.textContent = isArabic ? 'العربية' : 'English';
+
+    const translations = {
+      'Unleash the Beast Within Your Server': 'أطلق الوحش داخل خادمك',
+      'Simple, transparent pricing for Minecraft, Rust, and Discord Bots — with no surprises. Every plan comes with 24/7 expert support and a performance guarantee built for gamers.':
+        'أسعار شفافة وبسيطة لماينكرافت، راست، وبوتات ديسكورد — بدون مفاجآت. جميع الخطط تشمل دعماً فنياً 24/7 وضمان أداء مصمم للاعبين.',
+      'Launch Server': 'تشغيل الخادم',
+      'See Larger Plans': 'عرض الخطط الأكبر',
+      'Hide Larger Plans': 'إخفاء الخطط الأكبر',
+      'Deploy Server': 'تشغيل الخادم',
+      'Host Bot': 'تشغيل البوت',
+      'Minecraft': 'ماينكرافت',
+      'Rust': 'راست',
+      'Discord Bots': 'بوتات ديسكورد',
+      'Unlimited Player Slots': 'عدد لاعبين غير محدود',
+      'DDoS Protection': 'حماية ضد هجمات DDoS',
+      'Plugin & Mod Support': 'دعم الإضافات والمودات',
+      '1-Click Modpack Install': 'تثبيت المودباك بنقرة واحدة',
+      'Priority Support': 'دعم أولوية',
+      'Unlimited NVMe Storage': 'تخزين NVMe غير محدود',
+      'Dedicated IP Address': 'عنوان IP مخصص',
+      'Premium Support': 'دعم مميز',
+      'High CPU Priority': 'أولوية عالية للمعالج',
+      'Very High CPU Priority': 'أولوية عالية جداً للمعالج',
+      'Extreme CPU Priority': 'أقصى أولوية للمعالج',
+      '50 Player Slots': '50 فتحة للاعبين',
+      '100 Player Slots': '100 فتحة للاعبين',
+      '200 Player Slots': '200 فتحة للاعبين',
+      'uMod/Oxide Support': 'دعم uMod/Oxide',
+      'Game DDoS Protection': 'حماية DDoS مخصصة للألعاب',
+      '1-Click Plugin Install': 'تثبيت الإضافات بنقرة واحدة',
+      'Database Support': 'دعم قواعد البيانات',
+      'Node.js Support': 'دعم Node.js',
+      'Python Support': 'دعم Python',
+      'Silverfish': 'السمكة الفضية',
+      'Zombie': 'زومبي',
+      'Skeleton': 'هيكل عظمي',
+      'Spider': 'عنكبوت',
+      'Creeper': 'كريبر',
+      'Slime': 'سلايم',
+      'Enderman': 'إنديرمان',
+      'Witch': 'ساحرة',
+      'Blaze': 'بليز',
+      'Guardian': 'جارديان',
+      'Evoker': 'إيفوكر',
+      'Ravager': 'رافاجر',
+      'Wither': 'ويذر',
+      'Warden': 'واردن',
+      'Piglin Brute': 'بروت بيجلن',
+      'Ender Dragon': 'تنين الإند'
+    };
+
+    document.querySelectorAll('h1, h2, h3, p, a, button, li').forEach(el => {
+      if (el.closest('.price')) return; // exclude price and all its contents including /mo
+      const text = el.textContent.trim();
+      if (translations[text]) {
+        el.textContent = translations[text];
+      } else {
+        const eng = Object.keys(translations).find(key => translations[key] === text);
+        if (eng) el.textContent = eng;
+      }
+    });
+
+    // Reverse grid direction
+    const grids = document.querySelectorAll('.pricing-grid');
+    grids.forEach(grid => {
+      if (!isArabic) {
+        grid.classList.add('rtl');
+      } else {
+        grid.classList.remove('rtl');
+      }
+    });
+  }
+</script>
 </body>
 </html>

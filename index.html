@@ -74,12 +74,12 @@
       display: flex; align-items: center; gap: 0.75rem; transition: transform 0.3s ease;
     }
     .logo img {
-      height: 80px;
-      max-height: 100px;
-      width: auto;
-      object-fit: contain;
-      image-rendering: crisp-edges;
-    }
+            height: 100px;
+            max-height: 130px;
+            width: auto;
+            object-fit: contain;
+            image-rendering: crisp-edges;
+        }
     .logo:hover { transform: scale(1.05); }
     .nav-links { display: flex; gap: 2.5rem; }
     .navbar a {
@@ -247,12 +247,12 @@
     @media (max-width: 820px) {
         .logo .logo-text { display: none; }
         .logo img {
-      height: 80px;
-      max-height: 100px;
-      width: auto;
-      object-fit: contain;
-      image-rendering: crisp-edges;
-    }
+            height: 100px;
+            max-height: 130px;
+            width: auto;
+            object-fit: contain;
+            image-rendering: crisp-edges;
+        }
         .nav-links {
             display: none; position: absolute; top: 100%; left: 0; width: 100%;
             background-color: var(--navbar-bg); backdrop-filter: blur(10px);
@@ -299,14 +299,130 @@
         h1, h2, h3, p, a {
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
         }
-        </style>
+        
+        .logo-hero {
+          text-align: center;
+        }
+
+        @keyframes fadeInDown {
+          from {
+            opacity: 0;
+            transform: translateY(-30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        @keyframes floatUpDown {
+          0%, 100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-10px);
+          }
+        }
+        
+            .testimonial-card {
+              background-color: rgba(255, 255, 255, 0.03);
+              border: 1px solid #444;
+              border-radius: 12px;
+              padding: 20px;
+              margin: 10px;
+              transition: transform 0.3s ease;
+            }
+            .testimonial-card.animated {
+              animation: fadeInUp 1s ease-in-out;
+            }
+            @keyframes fadeInUp {
+              0% {
+                opacity: 0;
+                transform: translateY(20px);
+              }
+              100% {
+                opacity: 1;
+                transform: translateY(0);
+              }
+            }
+            
+            .testimonial-grid {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 20px;
+              justify-content: center;
+            }
+            .testimonial-card {
+              background-color: rgba(255, 255, 255, 0.03);
+              border: 1px solid #444;
+              border-radius: 12px;
+              padding: 20px;
+              width: 300px;
+              transition: transform 0.3s ease;
+            }
+            .testimonial-card.animated {
+              animation: fadeInUp 1s ease-in-out;
+            }
+            @keyframes fadeInUp {
+              0% {
+                opacity: 0;
+                transform: translateY(20px);
+              }
+              100% {
+                opacity: 1;
+                transform: translateY(0);
+              }
+            }
+            
+    .testimonial-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .testimonial-card {
+      background-color: rgba(255, 255, 255, 0.03);
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 25px;
+      width: 320px; min-height: 230px;
+      transition: transform 0.3s ease;
+      text-align: right;
+      font-family: 'Tajawal', sans-serif;
+    }
+
+    .testimonial-card p {
+      margin: 0.5rem 0;
+      color: var(--text-color);
+      font-size: 15px;
+    }
+
+    .testimonial-card strong {
+      color: #a78bfa;
+      font-weight: bold;
+    }
+
+    .testimonial-card.animated {
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    </style>
 </head>
 <body>
 <nav class="navbar" id="main-navbar">
 <div class="nav-container">
 <a class="logo" href="index.html">
-<img alt="SKYLIGHT Hosting Logo" src="img/Partner_Logo.png"/>
-<span class="logo-text">PartnerHost HOSTING</span>
 </a>
 <button aria-label="Toggle navigation" class="menu-toggle" id="menu-toggle">
 <span class="bar"></span><span class="bar"></span><span class="bar"></span>
@@ -316,8 +432,8 @@
 </nav>
 <main class="container">
 <section class="hero">
-<h1 class="float-text">هل تحتاج إلى استضافة ماين كرافت ؟</h1>
-<p class="subtitle">توفر بارتنر هوست خوادم ويندوز و لينكس مع أقوى حماية ضد هجمات DDOS. 
+<img alt="PartnerHost Logo" class="logo-hero" src="Partner_Logo.png" style="margin: 0 auto 10px auto; height: 280px; display: block; animation: fadeInDown 1s ease-out; animation: floatUpDown 3s ease-in-out infinite;"/><h1 class="float-text fade-in-down" style="animation: fadeInDown 1s ease-out;">هل تحتاج إلى استضافة ماين كرافت ؟</h1>
+<p class="subtitle fade-in-down" style="animation: fadeInDown 1.5s ease-out;">توفر بارتنر هوست خوادم ويندوز و لينكس مع أقوى حماية ضد هجمات DDOS. 
 افتح سيرفرك خلال 5 دقائق!</p>
 <a class="cta-button-modern" href="plans.html">انشئ سيرفرك الآن</a>
 <div class="gif-container">
@@ -379,11 +495,9 @@
 <p class="quote">أشغل بوت ديسكورد بايثون عندهم، ما يطفي أبد. لوحة التحكم سهلة والتعامل مع الملفات مره بسيط!</p>
 </div>
 </div>
-</section>
+<div class="testimonial-grid"></div><div class="testimonial-grid"></div><div class="testimonial-grid"></div></section>
 </main>
-<footer>
-    Copyright © 2025 PartnerHost Hosting.
-  </footer>
+
 <script>
     // Navbar transparency on scroll
     const navbar = document.getElementById("main-navbar");
@@ -417,5 +531,5 @@
     const animatedItems = document.querySelectorAll('.animated-item');
     animatedItems.forEach(item => observer.observe(item));
   </script>
-</body>
+<footer style="background-color: #0e0f1a; padding: 40px 20px; text-align: center; color: #ccc; font-size: 14px;"><div style="margin-bottom: 15px; font-weight: bold; font-size: 18px; color: white;">PartnerHost</div><div style="margin-bottom: 20px;"><a href="#" style="margin: 0 10px; color: #aaa; text-decoration: none;">الرئيسية</a><a href="#" style="margin: 0 10px; color: #aaa; text-decoration: none;">سياسة الخصوصية</a><a href="#" style="margin: 0 10px; color: #aaa; text-decoration: none;">الشروط والأحكام</a><a href="#" style="margin: 0 10px; color: #aaa; text-decoration: none;">الدعم الفني</a></div><div style="margin-top: 10px; color: #666; font-size: 13px;">© 2025 PartnerHost. جميع الحقوق محفوظة.</div></footer></body>
 </html>

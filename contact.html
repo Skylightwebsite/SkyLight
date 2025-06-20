@@ -1,80 +1,179 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html dir="rtl" lang="ar">
 <head>
     <meta charset="UTF-8">
     <title>اتصل بنا - PartnerHost</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="img/taplogo.png" rel="icon" type="image/png"/>
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "ryu72adkni");
+    </script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        :root {
+          --primary-color: #9f6bff;
+          --secondary-color: #c084fc;
+          --accent-color: #c084fc;
+          --text-color: #ffffff;
+          --text-color-darker: #d4d4d8;
+          --bg-color: #0a0f1c;
+          --card-bg: rgba(31, 41, 55, 0.5); /* Semi-transparent card */
+          --border-color: rgba(255, 255, 255, 0.1);
+          --navbar-bg: rgba(17, 24, 39, 0.7);
+          --glow-color: rgba(99, 102, 241, 0.5);
+        }
+        *, *::before, *::after {
+          box-sizing: border-box;
+        }
         body {
-            min-height: 100vh;
-            position: relative;
-            font-family: 'Cairo', sans-serif;
-            background-color: #111;
-            color: #e0e0e0;
-            margin: 0;
-            padding: 0;
-            line-height: 1.7;
+          font-family: 'Inter', sans-serif;
+          margin: 0;
+          padding: 0;
+          line-height: 1.6;
+          background-color: var(--bg-color);
+          background-image: url('img/background11.png');
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          color: var(--text-color);
+          display: flex;
+          flex-direction: column;
+          min-height: 100vh;
+          overflow-x: hidden;
         }
-        nav {
-            background-color: #0b0b0c;
-            padding: 16px;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            font-weight: bold;
+        .navbar {
+          background-color: transparent;
+          padding: 0.5rem 1.5rem;
+          position: fixed;
+          width: 100%;
+          top: 0;
+          z-index: 1000;
+          transition: background-color 0.4s ease, box-shadow 0.4s ease, backdrop-filter 0.4s ease;
+          backdrop-filter: blur(0px);
         }
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 1rem;
+        .navbar.scrolled {
+          background-color: var(--navbar-bg);
+          backdrop-filter: blur(10px);
+          box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
-        nav a:hover {
-            color: #a472e8;
+        .nav-container {
+          max-width: 1280px;
+          margin: 0 auto;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-direction: row-reverse;
         }
+        .logo {
+          font-size: 1.25rem; font-weight: 700; color: white; text-decoration: none;
+          display: flex; align-items: center; gap: 0.75rem; transition: transform 0.3s ease;
+        }
+        .logo img {
+            height: 4rem; /* Standard navbar logo size */
+            width: auto;
+        }
+        .logo:hover { transform: scale(1.05); }
+        .nav-links { display: flex; gap: 2.5rem; }
+        .navbar a {
+          color: var(--text-color); text-decoration: none; font-weight: 500; font-size: 1.1rem;
+          transition: color 0.3s ease; position: relative; padding: 0.5rem 0;
+        }
+        .navbar a:hover { color: var(--primary-color); }
+        .nav-links a::after {
+          content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 50%;
+          transform: translateX(-50%); background-color: var(--primary-color); transition: width 0.3s ease;
+        }
+        .nav-links a:hover::after { width: 100%; }
         .container {
-            max-width: 960px;
-            margin: auto;
-            padding: 40px 20px;
+          max-width: 1280px; margin: 0 auto; padding: 2rem;
+          flex: 1; width: 100%;
         }
-        h1, h2 {
-            color: #a472e8;
+        main { padding-top: 8rem; }
+        
+        .page-header { text-align: center; margin-bottom: 3rem; }
+        .page-header .page-title {
+            font-size: 3.5rem; font-weight: 800; margin-bottom: 1rem;
+            color: white;
         }
-        label {
+        .page-header .page-subtitle {
+          font-size: 1.2rem; color: var(--text-color-darker); max-width: 700px; margin: 0 auto;
+        }
+
+        h1, h2, h3, p, a, label {
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+        }
+
+        /* --- Form Styles --- */
+        .contact-form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2.5rem;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            animation: fadeInUp 1s ease-out;
+        }
+        .contact-form-container label {
             display: block;
-            margin: 10px 0 5px;
+            margin: 1rem 0 0.5rem;
+            font-weight: 500;
         }
-        input, textarea {
+        .contact-form-container input,
+        .contact-form-container textarea {
             width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            background-color: #222;
-            border: 1px solid #555;
-            color: white;
+            padding: 12px;
+            margin-bottom: 1rem;
+            background-color: rgba(0,0,0,0.3);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
         }
-        button {
-            background-color: #a472e8;
+        .contact-form-container input:focus,
+        .contact-form-container textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px var(--glow-color);
+        }
+        .contact-form-container button {
+            display: block;
+            width: 100%;
+            background-color: var(--primary-color);
             border: none;
-            padding: 10px 20px;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        footer {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            text-align: center;
             padding: 1rem;
-            background-color: #0b0b0c;
-            color: #e0e0e0;
-            margin-top: 2rem;
-        }
-        /* Status message styles */
-        .form-status {
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
             margin-top: 1rem;
+        }
+        .contact-form-container button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px var(--glow-color);
+        }
+
+        /* --- Status Message Styles --- */
+        .form-status {
+            margin-top: 1.5rem;
             padding: 1rem;
             border-radius: 8px;
+            text-align: center;
             display: none;
+        }
+        .form-status.show {
+            display: block;
+            animation: fadeInUp 0.5s ease;
         }
         .form-status.success {
             background-color: #10b981;
@@ -84,43 +183,126 @@
             background-color: #ef4444;
             color: white;
         }
+
+        /* --- Footer --- */
+        footer {
+          background-color: rgba(17, 24, 39, 0.5); text-align: center; padding: 1.5rem 1rem;
+          margin-top: auto; border-top: 1px solid var(--border-color);
+          font-size: 0.9rem; color: var(--text-color-darker);
+        }
+        
+        /* --- Mobile Menu & Responsive --- */
+        .menu-toggle {
+            display: none; flex-direction: column; justify-content: space-around;
+            width: 2.5rem; height: 2rem; background: transparent; border: none; cursor: pointer; padding: 0; z-index: 10;
+        }
+        .menu-toggle .bar {
+            width: 2.5rem; height: 0.25rem; background-color: var(--text-color);
+            border-radius: 10px; transition: all 0.3s ease-in-out;
+        }
+        .nav-links a.btn-nav {
+            background-color: #333; padding: 0.4rem 1rem; border-radius: 6px;
+            font-weight: bold; color: white;
+        }
+        .nav-links a.btn-nav:hover { background-color: #555; }
+        
+        /* Animations */
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media (max-width: 820px) {
+            .nav-links {
+                display: none; position: absolute; top: 100%; left: 0; width: 100%;
+                background-color: var(--navbar-bg); backdrop-filter: blur(10px);
+                flex-direction: column; align-items: center; padding: 1rem 0;
+                border-top: 1px solid var(--border-color);
+            }
+            .nav-links.active { display: flex; }
+            .nav-links a { padding: 1rem 0; font-size: 1.2rem; }
+            .menu-toggle { display: flex; }
+            .menu-toggle.active .bar:nth-child(1) { transform: translateY(11px) rotate(45deg); }
+            .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
+            .menu-toggle.active .bar:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
+            
+            main { padding-top: 6rem; }
+            .container { padding: 1rem; }
+            .page-header .page-title { font-size: 2.5rem; }
+            .page-header .page-subtitle { font-size: 1rem; }
+            .contact-form-container { padding: 1.5rem; }
+        }
     </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html">الصفحة الرئيسية</a>
-        <a href="https://panel.skylightmc.net/"  target="_blank">لوحة التحكم</a>
-        <a href="plans.html">الخطط</a>
-        <a href="contact.html"></a>
+    <nav class="navbar" id="main-navbar">
+        <div class="nav-container">
+            <a class="logo" href="index.html">
+                <img src="img/Partner_Logo.png" alt="PartnerHost Logo">
+            </a>
+            <button aria-label="Toggle navigation" class="menu-toggle" id="menu-toggle">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </button>
+            <div class="nav-links" id="nav-links">
+                <a class="btn-nav" href="https://panel.skylightmc.net/" target="_blank">لوحة التحكم</a>
+                <a href="plans.html">سيرفرات الألعاب</a>
+                <a href="contact.html">اتصل بنا</a>
+            </div>
+        </div>
     </nav>
 
-    <div class="container" style="text-align: center;">
-        <h1>تواصل معنا</h1>
-        <p>يسعدنا تواصلك معنا، أرسل رسالتك وسنرد عليك في أقرب وقت ممكن.</p>
+    <main class="container">
+        <header class="page-header">
+            <h1 class="page-title" style="animation: fadeInDown 1s ease-out;">تواصل معنا</h1>
+            <p class="page-subtitle" style="animation: fadeInDown 1.5s ease-out;">هل لديك سؤال أو استفسار؟ يسعدنا تواصلك معنا، املأ النموذج أدناه وسنرد عليك في أقرب وقت ممكن.</p>
+        </header>
 
-        <h2>أرسل رسالة</h2>
-        <form id="contact-form">
-            <label for="name">الاسم</label>
-            <input type="text" id="name" name="name" required>
+        <div class="contact-form-container">
+            <form id="contact-form">
+                <label for="name">الاسم</label>
+                <input type="text" id="name" name="name" required placeholder="اسمك الكامل">
 
-            <label for="email">البريد الإلكتروني</label>
-            <input type="email" id="email" name="email" required>
+                <label for="email">البريد الإلكتروني</label>
+                <input type="email" id="email" name="email" required placeholder="example@email.com">
 
-            <label for="message">الرسالة</label>
-            <textarea id="message" name="message" rows="10" style="height: 200px;" required></textarea>
+                <label for="message">الرسالة</label>
+                <textarea id="message" name="message" rows="8" required placeholder="اكتب رسالتك هنا..."></textarea>
 
-            <button type="submit">إرسال الرسالة</button>
-        </form>
+                <button type="submit">إرسال الرسالة</button>
+            </form>
+            <div id="form-status" class="form-status"></div>
+        </div>
+    </main>
 
-        <!-- Status Message -->
-        <div id="form-status" class="form-status"></div>
-    </div>
-
-    <footer>
-        PartnerHost © 2025 جميع الحقوق محفوظة.
+    <footer style="background-color: #0e0f1a; padding: 40px 20px; text-align: center; color: #ccc; font-size: 14px;">
+        <div style="margin-bottom: 15px; font-weight: bold; font-size: 18px; color: white;">PartnerHost</div>
+        <div style="margin-bottom: 20px;">
+          <a href="index.html" style="margin: 0 10px; color: #aaa; text-decoration: none;">الرئيسية</a>
+          <a href="privacy_PartnerHost.html" style="margin: 0 10px; color: #aaa; text-decoration: none;">سياسة الخصوصية</a>
+          <a href="terms_and_conditions_PartnerHost.com.html" style="margin: 0 10px; color: #aaa; text-decoration: none;">الشروط والأحكام</a>
+          <a href="contact.html" style="margin: 0 10px; color: #aaa; text-decoration: none;">الدعم الفني</a>
+        </div>
+        <div style="margin-top: 10px; color: #666; font-size: 13px;">© 2025 PartnerHost. جميع الحقوق محفوظة.</div>
     </footer>
 
     <script>
+        // Navbar transparency on scroll
+        const navbar = document.getElementById("main-navbar");
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 50) {
+            navbar.classList.add("scrolled");
+          } else {
+            navbar.classList.remove("scrolled");
+          }
+        });
+    
+        // Mobile menu toggle functionality
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Form submission script
         document.getElementById("contact-form").addEventListener("submit", function(e) {
             e.preventDefault();
 
@@ -135,7 +317,6 @@
                 return;
             }
 
-            // Show loading state (optional)
             formStatus.textContent = "جاري الإرسال...";
             formStatus.className = "form-status show";
 
@@ -143,13 +324,14 @@
                 content: null,
                 embeds: [{
                     title: " بريد جديد📬",
-                    color: 5814734,
+                    color: 10776808, // Updated color to match site's primary purple
                     fields: [
                         { name: "الاسم", value: name },
                         { name: "البريد الإلكتروني", value: email },
                         { name: "الرسالة", value: message }
                     ],
-                    footer: { text: "PartnerHost - نموذج الاتصال" }
+                    footer: { text: "PartnerHost - نموذج الاتصال" },
+                    timestamp: new Date().toISOString()
                 }]
             };
 
@@ -160,10 +342,14 @@
                 },
                 body: JSON.stringify(payload)
             })
-            .then(() => {
-                formStatus.textContent = "تم إرسال رسالتك بنجاح!";
-                formStatus.className = "form-status success show";
-                document.getElementById("contact-form").reset();
+            .then(response => {
+                if (response.ok) {
+                    formStatus.textContent = "تم إرسال رسالتك بنجاح!";
+                    formStatus.className = "form-status success show";
+                    document.getElementById("contact-form").reset();
+                } else {
+                    throw new Error('Network response was not ok.');
+                }
             })
             .catch((error) => {
                 console.error('Error:', error);

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -7,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
-    min-height: 100vh;
-    position: relative;
+            min-height: 100vh;
+            position: relative;
             font-family: 'Cairo', sans-serif;
             background-color: #111;
             color: #e0e0e0;
@@ -61,21 +60,36 @@
             cursor: pointer;
         }
         footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
             text-align: center;
             padding: 1rem;
             background-color: #0b0b0c;
             color: #e0e0e0;
             margin-top: 2rem;
         }
+        /* Status message styles */
+        .form-status {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            display: none;
+        }
+        .form-status.success {
+            background-color: #10b981;
+            color: white;
+        }
+        .form-status.error {
+            background-color: #ef4444;
+            color: white;
+        }
     </style>
 </head>
 <body>
     <nav>
         <a href="index.html">الصفحة الرئيسية</a>
-        <a href="https://panel.partner-hosting.com/" target="_blank">لوحة التحكم</a>
+        <a href="https://panel.partner-hosting.com/"  target="_blank">لوحة التحكم</a>
         <a href="plans.html">الخطط</a>
         <a href="contact.html">اتصل بنا</a>
     </nav>
@@ -85,7 +99,7 @@
         <p>يسعدنا تواصلك معنا، أرسل رسالتك وسنرد عليك في أقرب وقت ممكن.</p>
 
         <h2>أرسل رسالة</h2>
-        <form>
+        <form id="contact-form">
             <label for="name">الاسم</label>
             <input type="text" id="name" name="name" required>
 
@@ -97,10 +111,66 @@
 
             <button type="submit">إرسال الرسالة</button>
         </form>
+
+        <!-- Status Message -->
+        <div id="form-status" class="form-status"></div>
     </div>
 
     <footer>
         PartnerHost © 2025 جميع الحقوق محفوظة.
     </footer>
+
+    <script>
+        document.getElementById("contact-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message").value.trim();
+            const formStatus = document.getElementById("form-status");
+
+            if (!name || !email || !message) {
+                formStatus.textContent = "يرجى ملء جميع الحقول.";
+                formStatus.className = "form-status error show";
+                return;
+            }
+
+            // Show loading state (optional)
+            formStatus.textContent = "جاري الإرسال...";
+            formStatus.className = "form-status show";
+
+            const payload = {
+                content: null,
+                embeds: [{
+                    title: "📬 رسالة جديدة من نموذج الاتصال",
+                    color: 5814734,
+                    fields: [
+                        { name: "الاسم", value: name },
+                        { name: "البريد الإلكتروني", value: email },
+                        { name: "الرسالة", value: message }
+                    ],
+                    footer: { text: "PartnerHost - نموذج الاتصال" }
+                }]
+            };
+
+            fetch("https://discord.com/api/webhooks/1385573871016476672/Hg1bDo-AGqvjjDHPresw_ljKlnKoLWhMHODH2nyuhVUhNAZeiyZGJZ5mpJeYoFl6YE9Y",  {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            })
+            .then(() => {
+                formStatus.textContent = "تم إرسال رسالتك بنجاح!";
+                formStatus.className = "form-status success show";
+                document.getElementById("contact-form").reset();
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                formStatus.textContent = "فشل إرسال الرسالة. يرجى المحاولة لاحقًا.";
+                formStatus.className = "form-status error show";
+            });
+        });
+    </script>
 </body>
 </html>

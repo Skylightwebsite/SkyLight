@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html dir="rtl" lang="ar">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -16,18 +16,18 @@
   </script>
 <style>
     :root {
-      --primary-color: #6366f1;
-      --secondary-color: #4f46e5;
-      --accent-color: #8b5cf6;
-      --text-color: #e5e7eb;
-      --text-color-darker: #9ca3af;
-      --bg-color: #111827;
-      --card-bg: rgba(31, 41, 55, 0.5);
-      --card-bg-solid: #1f2937;
-      --border-color: rgba(255, 255, 255, 0.1);
-      --navbar-bg: rgba(17, 24, 39, 0.7);
-      --success-color: #10b981;
-      --glow-color: rgba(99, 102, 241, 0.5);
+      --primary-color: #9b5de5;
+      --secondary-color: #7b3fe4;
+      --accent-color: #c96fff;
+      --text-color: #ffffff;
+      --text-color-darker: #d1cbe8;
+      --bg-color: #0e0e10;
+      --card-bg: rgba(32, 18, 53, 0.5);
+      --card-bg-solid: #1c1230;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --navbar-bg: rgba(14, 14, 16, 0.8);
+      --success-color: #58e1c1;
+      --glow-color: rgba(155, 93, 229, 0.5);
     }
     *, *::before, *::after { box-sizing: border-box; }
     body {
@@ -218,7 +218,13 @@
         .pricing-card.popular:hover { transform: translateY(-10px); }
     }
 
-  </style>
+  
+    @keyframes floatIcon {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0); }
+    }
+    </style>
 <style>
 @keyframes floatIcon {
   0% { transform: translateY(0); }
@@ -242,43 +248,27 @@
 <body>
 <nav class="navbar">
 <div class="nav-container">
-<a class="logo" href="index.html">
-<img alt="Patner-Hosting.com Logo" src="img/SKYLIGHT Logo.webp"/>
-<span class="logo-text">Patner-Hosting.com</span>
-</a>
+
 <button aria-label="Toggle navigation" class="menu-toggle" id="menu-toggle">
 <span class="bar"></span><span class="bar"></span><span class="bar"></span>
 </button>
 <div class="nav-links" id="nav-links">
-<a href="index.html">Home</a>
-<a href="https://panel.SKYLIGHTmc.net/">Dashboard</a>
-<a href="plans.html">Plans</a>
-<a href="contact.html">Contact</a>
+<a href="index.html">الصفحة الرئيسية</a>
+<a href="https://panel.SKYLIGHTmc.net/">لوحة التحكم</a>
+<a href="plans.html">المعلنين لدينا</a>
+<a href="contact.html">الشروحات</a>
 </div>
-
-<button id="lang-toggle" onclick="toggleLanguage()" style="padding: 0.5rem 1rem; background-color: var(--primary-color); color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;">
-  العربية
-</button>
 </div>
 </nav>
 <div class="container">
 <header class="page-header">
-<h1 class="page-title">Unleash the Beast Within Your Server</h1>
-<p class="page-subtitle">Simple, transparent pricing for Minecraft, Rust, and Discord Bots — with no surprises. Every plan comes with 24/7 expert support and a performance guarantee built for gamers.</p>
+<h1 class="page-title" dir="rtl">استضافة قوية وموثوقة تلبي تطلعات اللاعبين والمطورين.</h1>
+<img alt="Server Icon" src="img/server_icon.png" style="width: 180px; display: block; margin: 0 auto 1.5rem auto; animation: floatIcon 3s ease-in-out infinite;"/><p class="page-subtitle">خطط بأسعار شفافة، أداء مضمون، ودعم فني على مدار الساعة — مصممة خصيصًا للاعبين.</p>
 </header>
 <div class="tabs-container">
-<button class="tab-button active" data-target="minecraft">
-<svg fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9.75l-9-5.25M12 12.75l9 5.25" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-            Minecraft
-        </button>
-<button class="tab-button" data-target="rust">
-<svg fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.438.995s.145.755.438.995l1.003.827c.48.398.668 1.03.26 1.431l-1.296 2.247a1.125 1.125 0 01-1.37.49l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.063-.374-.313-.686-.645-.87a6.52 6.52 0 01-.22-.127c-.324-.196-.72-.257-1.075-.124l-1.217.456a1.125 1.125 0 01-1.37-.49l-1.296-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.437-.995s-.145-.755-.437-.995l-1.004-.827a1.125 1.125 0 01-.26-1.431l1.296-2.247a1.125 1.125 0 011.37-.49l1.217.456c.355.133.75.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.213-1.28zM15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-            Rust
-        </button>
-<button class="tab-button" data-target="bots">
-<svg fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V8.25a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 8.25v7.5A2.25 2.25 0 006.75 18z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-            Discord Bots
-        </button>
+<button class="tab-button active" data-target="minecraft">ماينكرافت</button>
+<button class="tab-button" data-target="rust">راست</button>
+<button class="tab-button" data-target="bots">بوتات ديسكورد</button>
 </div>
 <!-- Common SVG for checkmark -->
 <svg height="0" style="position:absolute" width="0">
@@ -288,7 +278,7 @@
 </svg>
 <!-- Minecraft Plans -->
 <div class="pricing-grid-container active" id="minecraft">
-<div class="pricing-grid">
+<div class="pricing-grid rtl">
 <div class="pricing-card">
 <div class="pricing-header">
 <img alt="Silverfish Icon" src="img/silverfish.webp" style="width: 48px; height: 48px; margin-bottom: 10px;"/>
@@ -301,7 +291,7 @@
 <li><svg fill="currentColor"><use href="#check"></use></svg>Unlimited Player Slots</li>
 <li><svg fill="currentColor"><use href="#check"></use></svg>DDoS Protection</li>
 </ul>
-<a class="plan-button" href="https://discord.com/invite/partnerhost">Launch Server</a>
+<a class="plan-button" href="https://discord.com/invite/partnerhost">تشغيل الخادم</a>
 </div>
 <div class="pricing-card">
 <div class="pricing-header">
@@ -315,7 +305,7 @@
 <li><svg fill="currentColor"><use href="#check"></use></svg>Unlimited Player Slots</li>
 <li><svg fill="currentColor"><use href="#check"></use></svg>DDoS Protection</li>
 </ul>
-<a class="plan-button" href="https://discord.com/invite/partnerhost">Launch Server</a>
+<a class="plan-button" href="https://discord.com/invite/partnerhost">تشغيل الخادم</a>
 </div>
 <div class="pricing-card">
 <div class="pricing-header">
@@ -329,7 +319,7 @@
 <li><svg fill="currentColor"><use href="#check"></use></svg>Unlimited Player Slots</li>
 <li><svg fill="currentColor"><use href="#check"></use></svg>DDoS Protection</li>
 </ul>
-<a class="plan-button" href="https://discord.com/invite/partnerhost">Launch Server</a>
+<a class="plan-button" href="https://discord.com/invite/partnerhost">تشغيل الخادم</a>
 </div>
 <div class="pricing-card">
 <div class="pricing-header">
@@ -343,9 +333,9 @@
 <li><svg fill="currentColor"><use href="#check"></use></svg>Unlimited Player Slots</li>
 <li><svg fill="currentColor"><use href="#check"></use></svg>DDoS Protection</li>
 </ul>
-<a class="plan-button" href="https://discord.com/invite/partnerhost">Launch Server</a>
+<a class="plan-button" href="https://discord.com/invite/partnerhost">تشغيل الخادم</a>
 </div>
-<div class="pricing-card">
+<div class="pricing-card popular"><div class="popular-badge">أفضل قيمة</div>
 <div class="pricing-header">
 <img alt="Creeper Icon" src="img/creeper.webp" style="width: 48px; height: 48px; margin-bottom: 10px;"/>
 <h3>Creeper</h3>
@@ -357,7 +347,7 @@
 <li><svg fill="currentColor"><use href="#check"></use></svg>Unlimited Player Slots</li>
 <li><svg fill="currentColor"><use href="#check"></use></svg>DDoS Protection</li>
 </ul>
-<a class="plan-button" href="https://discord.com/invite/partnerhost">Launch Server</a>
+<a class="plan-button" href="https://discord.com/invite/partnerhost">تشغيل الخادم</a>
 </div>
 <div class="pricing-card">
 <div class="pricing-header">
@@ -371,7 +361,7 @@
 <li><svg fill="currentColor"><use href="#check"></use></svg>Unlimited Player Slots</li>
 <li><svg fill="currentColor"><use href="#check"></use></svg>DDoS Protection</li>
 </ul>
-<a class="plan-button" href="https://discord.com/invite/partnerhost">Launch Server</a>
+<a class="plan-button" href="https://discord.com/invite/partnerhost">تشغيل الخادم</a>
 </div>
 <div class="pricing-card">
 <div class="pricing-header">
@@ -385,7 +375,7 @@
 <li><svg fill="currentColor"><use href="#check"></use></svg>Unlimited Player Slots</li>
 <li><svg fill="currentColor"><use href="#check"></use></svg>DDoS Protection</li>
 </ul>
-<a class="plan-button" href="https://discord.com/invite/partnerhost">Launch Server</a>
+<a class="plan-button" href="https://discord.com/invite/partnerhost">تشغيل الخادم</a>
 </div>
 <div class="pricing-card">
 <div class="pricing-header">
@@ -399,7 +389,7 @@
 <li><svg fill="currentColor"><use href="#check"></use></svg>Unlimited Player Slots</li>
 <li><svg fill="currentColor"><use href="#check"></use></svg>DDoS Protection</li>
 </ul>
-<a class="plan-button" href="https://discord.com/invite/partnerhost">Launch Server</a>
+<a class="plan-button" href="https://discord.com/invite/partnerhost">تشغيل الخادم</a>
 </div>
 <div class="pricing-card">
 <div class="pricing-header">
@@ -413,30 +403,27 @@
 <li><svg fill="currentColor"><use href="#check"></use></svg>Unlimited Player Slots</li>
 <li><svg fill="currentColor"><use href="#check"></use></svg>DDoS Protection</li>
 </ul>
-<a class="plan-button" href="https://discord.com/invite/partnerhost">Launch Server</a>
+<a class="plan-button" href="https://discord.com/invite/partnerhost">تشغيل الخادم</a>
 </div>
 </div>
-
-
-
-
 <script>
-  function toggleLargerPlans() {
-    const section = document.getElementById('larger-plans-section');
-    const button = document.getElementById('toggle-plans-button');
-    const isVisible = section.style.display === 'block';
-    section.style.display = isVisible ? 'none' : 'block';
-    button.textContent = isVisible ? 'See Larger Plans' : 'Hide Larger Plans';
-  }
-</script>
+        function toggleLargerPlans() {
+          const section = document.getElementById('larger-plans-section');
+          const button = document.getElementById('toggle-plans-button');
+          const isVisible = section.style.display === 'block';
+          section.style.display = isVisible ? 'none' : 'block';
+          button.textContent = isVisible ? 'عرض الخطط الأكبر' : 'إخفاء الخطط';
+        }
+        </script>
+<div style="text-align: center; margin-top: 2rem;">عرض الخطط الأكبر</div>
 
-<div style="text-align: center; margin-top: 2rem;">
+<div dir="rtl" style="text-align: center; margin-top: 2rem;">
 <button id="toggle-plans-button" onclick="toggleLargerPlans()" style="padding: 1rem 2rem; font-size: 1.2rem; font-weight: 600; background-color: var(--primary-color); color: white; border: none; border-radius: 8px; cursor: pointer; box-shadow: 0 0 10px var(--glow-color);">
-    See Larger Plans
+    عرض الخطط الأكبر
   </button>
 </div>
 <div id="larger-plans-section" style="display:none; margin-top: 3rem;">
-<div class="pricing-grid">
+<div class="pricing-grid rtl">
 <div class="pricing-card">
 <div class="pricing-header">
 <img alt="Wither Icon" src="img/wither.webp" style="width: 48px; height: 48px; margin-bottom: 10px;"/>
@@ -449,7 +436,7 @@
 <li><svg fill="currentColor"><use href="#check"></use></svg>Unlimited Player Slots</li>
 <li><svg fill="currentColor"><use href="#check"></use></svg>Dedicated IP</li>
 </ul>
-<a class="plan-button" href="https://discord.com/invite/partnerhost">Launch Server</a>
+<a class="plan-button" href="https://discord.com/invite/partnerhost">تشغيل الخادم</a>
 </div>
 <div class="pricing-card">
 <div class="pricing-header">
@@ -463,7 +450,7 @@
 <li><svg fill="currentColor"><use href="#check"></use></svg>Unlimited Player Slots</li>
 <li><svg fill="currentColor"><use href="#check"></use></svg>Premium Support</li>
 </ul>
-<a class="plan-button" href="https://discord.com/invite/partnerhost">Launch Server</a>
+<a class="plan-button" href="https://discord.com/invite/partnerhost">تشغيل الخادم</a>
 </div>
 <div class="pricing-card">
 <div class="pricing-header">
@@ -477,16 +464,14 @@
 <li><svg fill="currentColor"><use href="#check"></use></svg>Unlimited Player Slots</li>
 <li><svg fill="currentColor"><use href="#check"></use></svg>24/7 Priority Support</li>
 </ul>
-<a class="plan-button" href="https://discord.com/invite/partnerhost">Launch Server</a>
+<a class="plan-button" href="https://discord.com/invite/partnerhost">تشغيل الخادم</a>
 </div>
 </div>
 </div>
-
-
 </div>
 <!-- Rust Plans -->
 <div class="pricing-grid-container" id="rust">
-<div class="pricing-grid">
+<div class="pricing-grid rtl">
 <div class="pricing-card">
 <div class="pricing-header"><h3>Scrap</h3><p>Perfect for solo players or small group survival.</p><div class="price"><span class="currency">$</span>7<span class="period">.99/mo</span></div></div>
 <ul class="features-list">
@@ -495,10 +480,10 @@
 <li><svg fill="currentColor"><use href="#check"></use></svg>uMod/Oxide Support</li>
 <li><svg fill="currentColor"><use href="#check"></use></svg>Game DDoS Protection</li>
 </ul>
-<a class="plan-button" href="https://discord.com/invite/partnerhost">Deploy Server</a>
+<a class="plan-button" href="https://discord.com/invite/partnerhost">تشغيل الخادم</a>
 </div>
 <div class="pricing-card popular">
-<div class="popular-badge">Best Value</div>
+<div class="popular-badge">أفضل قيمة</div>
 <div class="pricing-header"><h3>Component</h3><p>The standard for clans and modded servers.</p><div class="price"><span class="currency">$</span>12<span class="period">.99/mo</span></div></div>
 <ul class="features-list">
 <li><svg fill="currentColor"><use href="#check"></use></svg>100 Player Slots</li>
@@ -506,7 +491,7 @@
 <li><svg fill="currentColor"><use href="#check"></use></svg>1-Click Plugin Install</li>
 <li><svg fill="currentColor"><use href="#check"></use></svg>Priority Support</li>
 </ul>
-<a class="plan-button" href="https://discord.com/invite/partnerhost">Deploy Server</a>
+<a class="plan-button" href="https://discord.com/invite/partnerhost">تشغيل الخادم</a>
 </div>
 <div class="pricing-card">
 <div class="pricing-header"><h3>High-Qual</h3><p>For large-scale servers needing peak performance.</p><div class="price"><span class="currency">$</span>19<span class="period">.99/mo</span></div></div>
@@ -516,13 +501,13 @@
 <li><svg fill="currentColor"><use href="#check"></use></svg>Dedicated IP Address</li>
 <li><svg fill="currentColor"><use href="#check"></use></svg>Premium Support</li>
 </ul>
-<a class="plan-button" href="https://discord.com/invite/partnerhost">Deploy Server</a>
+<a class="plan-button" href="https://discord.com/invite/partnerhost">تشغيل الخادم</a>
 </div>
 </div>
 </div>
 <!-- Bot Plans -->
 <div class="pricing-grid-container" id="bots">
-<div class="pricing-grid">
+<div class="pricing-grid rtl">
 <div class="pricing-card">
 <div class="pricing-header"><h3>JS Bot</h3><p>Perfect for getting your Node.js bot online 24/7.</p><div class="price"><span class="currency">$</span>1<span class="period">.99/mo</span></div></div>
 <ul class="features-list">
@@ -530,17 +515,17 @@
 <li><svg fill="currentColor"><use href="#check"></use></svg>1 CPU Core</li>
 <li><svg fill="currentColor"><use href="#check"></use></svg>Node.js Support</li>
 </ul>
-<a class="plan-button" href="https://discord.com/invite/partnerhost">Host Bot</a>
+<a class="plan-button" href="https://discord.com/invite/partnerhost">تشغيل البوت</a>
 </div>
 <div class="pricing-card popular">
-<div class="popular-badge">Top Choice</div>
+<div class="popular-badge">الخيار الأفضل</div>
 <div class="pricing-header"><h3>Python Bot</h3><p>More power for complex bots and libraries.</p><div class="price"><span class="currency">$</span>2<span class="period">.99/mo</span></div></div>
 <ul class="features-list">
 <li><svg fill="currentColor"><use href="#check"></use></svg>2GB RAM</li>
 <li><svg fill="currentColor"><use href="#check"></use></svg>2 CPU Cores</li>
 <li><svg fill="currentColor"><use href="#check"></use></svg>Python Support</li>
 </ul>
-<a class="plan-button" href="https://discord.com/invite/partnerhost">Host Bot</a>
+<a class="plan-button" href="https://discord.com/invite/partnerhost">تشغيل البوت</a>
 </div>
 <div class="pricing-card">
 <div class="pricing-header"><h3>Bot Pro</h3><p>For high-traffic bots with database requirements.</p><div class="price"><span class="currency">$</span>4<span class="period">.99/mo</span></div></div>
@@ -549,14 +534,23 @@
 <li><svg fill="currentColor"><use href="#check"></use></svg>4 CPU Cores</li>
 <li><svg fill="currentColor"><use href="#check"></use></svg>Database Support</li>
 </ul>
-<a class="plan-button" href="https://discord.com/invite/partnerhost">Host Bot</a>
+<a class="plan-button" href="https://discord.com/invite/partnerhost">تشغيل البوت</a>
 </div>
 </div>
 </div>
 </div>
-<footer>
-    © 2025 Patner-Hosting.com. All rights reserved.
-  </footer>
+
+<footer dir="rtl" style="background-color: var(--navbar-bg); color: var(--text-color-darker); text-align: center; padding: 2rem 1rem; border-top: 1px solid var(--border-color);">
+<div style="font-size: 1.5rem; font-weight: 700; color: white;">PartnerHost</div>
+<div style="margin: 1rem 0;">
+<a href="index.html" style="margin: 0 1rem; color: var(--text-color-darker); text-decoration: none;">الرئيسية</a>
+<a href="#" style="margin: 0 1rem; color: var(--text-color-darker); text-decoration: none;">سياسة الخصوصية</a>
+<a href="#" style="margin: 0 1rem; color: var(--text-color-darker); text-decoration: none;">الشروط والأحكام</a>
+<a href="contact.html" style="margin: 0 1rem; color: var(--text-color-darker); text-decoration: none;">الدعم الفني</a>
+</div>
+<div style="font-size: 0.9rem;">© 2025 PartnerHost. جميع الحقوق محفوظة.</div>
+</footer>
+
 <script>
     // Mobile menu toggle functionality
     const menuToggle = document.getElementById('menu-toggle');
@@ -584,16 +578,6 @@
         });
     });
   </script>
-
-
-
-
-
-
-
-
-
-
 <script>
 function toggleLanguage() {
   const langButton = document.getElementById('lang-toggle');
@@ -602,8 +586,8 @@ function toggleLanguage() {
   langButton.textContent = isArabic ? 'العربية' : 'English';
 
   const translations = {
-    'Unleash the Beast Within Your Server': 'أطلق الوحش داخل خادمك',
-    'Simple, transparent pricing for Minecraft, Rust, and Discord Bots — with no surprises. Every plan comes with 24/7 expert support and a performance guarantee built for gamers.':
+    'استضافة قوية وموثوقة تلبي تطلعات اللاعبين والمطورين.': 'أطلق الوحش داخل خادمك',
+    'خطط بأسعار شفافة، أداء مضمون، ودعم فني على مدار الساعة — مصممة خصيصًا للاعبين.':
       'أسعار شفافة وبسيطة لماينكرافت، راست، وبوتات ديسكورد — بدون مفاجآت. جميع الخطط تشمل دعماً فنياً 24/7 وضمان أداء مصمم للاعبين.',
     'Launch Server': 'تشغيل الخادم',
     'See Larger Plans': 'عرض الخطط الأكبر',
@@ -675,8 +659,6 @@ function toggleLanguage() {
   });
 }
 </script>
-
-
 <script>
   function toggleLanguage() {
     const langButton = document.getElementById('lang-toggle');
@@ -685,8 +667,8 @@ function toggleLanguage() {
     langButton.textContent = isArabic ? 'العربية' : 'English';
 
     const translations = {
-      'Unleash the Beast Within Your Server': 'أطلق الوحش داخل خادمك',
-      'Simple, transparent pricing for Minecraft, Rust, and Discord Bots — with no surprises. Every plan comes with 24/7 expert support and a performance guarantee built for gamers.':
+      'استضافة قوية وموثوقة تلبي تطلعات اللاعبين والمطورين.': 'أطلق الوحش داخل خادمك',
+      'خطط بأسعار شفافة، أداء مضمون، ودعم فني على مدار الساعة — مصممة خصيصًا للاعبين.':
         'أسعار شفافة وبسيطة لماينكرافت، راست، وبوتات ديسكورد — بدون مفاجآت. جميع الخطط تشمل دعماً فنياً 24/7 وضمان أداء مصمم للاعبين.',
       'Launch Server': 'تشغيل الخادم',
       'See Larger Plans': 'عرض الخطط الأكبر',
@@ -755,6 +737,24 @@ function toggleLanguage() {
       }
     });
   }
+</script>
+
+<script>
+  const tabButtons = document.querySelectorAll('.tab-button');
+  const backgrounds = {
+    minecraft: "url('img/plans.webp')",
+    rust: "url('img/rust_background.jpg')",
+    bots: "url('img/bots_background.jpg')"
+  };
+
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const target = button.dataset.target;
+      if (backgrounds[target]) {
+        document.body.style.backgroundImage = backgrounds[target];
+      }
+    });
+  });
 </script>
 </body>
 </html>
